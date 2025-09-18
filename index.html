@@ -341,29 +341,28 @@
                 }
             });
         });
-
-        // Form submission
         
         //DateUpdate
         document.getElementById("annoCorrente").textContent = new Date().getFullYear();
         
         //HideMail
-        const correo = "serlorenzo" + "@hotmail.com";
-        const enlace = document.getElementById("correoDesigner");
-        enlace.setAttribute("href", "mailto:" + correo);
-        enlace.setAttribute("target", "_blank"); // opcional: abre en nueva pestaña
-        enlace.style.cursor = "pointer"; // opcional: muestra que es clicable
-        
-        //Stay on Site
         document.getElementById('contactForm').addEventListener('submit', function(e) {
           e.preventDefault(); // Evita el envío tradicional
 
           const form = e.target;
-          const formData = new FormData(form);
 
+          // Capturamos los valores manualmente
+          const name = form.querySelector('[name="name"]').value;
+          const email = form.querySelector('[name="email"]').value;
+          const message = form.querySelector('[name="message"]').value;
+
+          // Enviamos como JSON
           fetch('https://greenservicetest-backend.onrender.com/contact', {
             method: 'POST',
-            body: formData
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, message })
           })
           .then(response => response.text())
           .then(data => {
@@ -372,7 +371,6 @@
             responseDiv.style.color = 'green';
             form.reset(); // Limpia el formulario
 
-            // Opcional: ocultar el mensaje después de unos segundos
             setTimeout(() => {
               responseDiv.innerText = '';
             }, 5000);
@@ -383,8 +381,7 @@
             responseDiv.style.color = 'red';
             console.error(error);
           });
-        });
-        
+        });    
     </script>
 
     <!-- Ícono flotante de WhatsApp -->
