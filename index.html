@@ -231,11 +231,12 @@
             <h2 class="section-title">Contatti</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form action="https://greenservicetest-backend.onrender.com/contact" method="POST">
+                    <form id="contactForm">
                         <input type="text" name="name" placeholder="Il tuo nome" required>
                         <input type="email" name="email" placeholder="La tua email" required>
                         <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
                         <button type="submit">Inviare massaggio</button>
+                        <div id="formResponse" style="margin-top: 10px; color: green;"></div>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -352,7 +353,37 @@
         enlace.setAttribute("href", "mailto:" + correo);
         enlace.setAttribute("target", "_blank"); // opcional: abre en nueva pestaña
         enlace.style.cursor = "pointer"; // opcional: muestra que es clicable
+        
+        //Stay on Site
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault(); // Evita el envío tradicional
 
+          const form = e.target;
+          const formData = new FormData(form);
+
+          fetch('https://greenservicetest-backend.onrender.com/contact', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            const responseDiv = document.getElementById('formResponse');
+            responseDiv.innerText = data;
+            responseDiv.style.color = 'green';
+            form.reset(); // Limpia el formulario
+
+            // Opcional: ocultar el mensaje después de unos segundos
+            setTimeout(() => {
+              responseDiv.innerText = '';
+            }, 5000);
+          })
+          .catch(error => {
+            const responseDiv = document.getElementById('formResponse');
+            responseDiv.innerText = 'Errore nell\'invio del messaggio.';
+            responseDiv.style.color = 'red';
+            console.error(error);
+          });
+        });
         
     </script>
 
