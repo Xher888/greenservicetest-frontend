@@ -233,8 +233,11 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <input type="text" name="name" placeholder="Il tuo nome" required>
+                        <div class="error-message" id="errorName"></div>
                         <input type="email" name="email" placeholder="La tua email" required>
+                        <div class="error-message" id="errorEmail"></div>
                         <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+                        <div class="error-message" id="errorMessage"></div>
                         <button type="submit">Inviare massaggio</button>
                         <div id="formResponse" style="margin-top: 10px; color: green;"></div>
                     </form>
@@ -310,79 +313,114 @@
       </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
+   <script>
+  // Mobile menu toggle
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navLinks = document.getElementById('navLinks');
 
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navLinks.classList.toggle('active');
+  mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
+      }
+    });
+  });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+  // DateUpdate
+  document.getElementById("annoCorrente").textContent = new Date().getFullYear();
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        //DateUpdate
-        document.getElementById("annoCorrente").textContent = new Date().getFullYear();
-        
-        //HideMail
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-          e.preventDefault(); // Evita el envío tradicional
+  // HideMail
+  const correo = "serlorenzo" + "@hotmail.com";
+  const enlace = document.getElementById("correoDesigner");
+  enlace.setAttribute("href", "mailto:" + correo);
+  enlace.setAttribute("target", "_blank");
+  enlace.style.cursor = "pointer";
 
-          const form = e.target;
+  // Stay on Site + Validaciones
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-          // Capturamos los valores manualmente
-          const name = form.querySelector('[name="name"]').value;
-          const email = form.querySelector('[name="email"]').value;
-          const message = form.querySelector('[name="message"]').value;
+    const nameInput = form.querySelector('[name="name"]');
+    const emailInput = form.querySelector('[name="email"]');
+    const messageInput = form.querySelector('[name="message"]');
 
-          // Enviamos como JSON
-          fetch('https://greenservicetest-backend.onrender.com/contact', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email, message })
-          })
-          .then(response => response.text())
-          .then(data => {
-            const responseDiv = document.getElementById('formResponse');
-            responseDiv.innerText = data;
-            responseDiv.style.color = 'green';
-            form.reset(); // Limpia el formulario
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
 
-            setTimeout(() => {
-              responseDiv.innerText = '';
-            }, 5000);
-          })
-          .catch(error => {
-            const responseDiv = document.getElementById('formResponse');
-            responseDiv.innerText = 'Errore nell\'invio del messaggio.';
-            responseDiv.style.color = 'red';
-            console.error(error);
-          });
-        });    
-    </script>
+    const errorName = document.getElementById('errorName');
+    const errorEmail = document.getElementById('errorEmail');
+    const errorMessage = document.getElementById('errorMessage');
+    const responseDiv = document.getElementById('formResponse');
+
+
+    // Validaciones
+    const nameRegex = /^[A-Za-zÀ-ÿ\s]{3,}$/;
+    const emailRegex = /^[^@]{2,}@[^@]+\.[a-zA-Z]{2,}$/;
+
+    if (!name || !email || !message) {
+        responseDiv.innerText = 'Tutti i campi sono obbligatori.';
+        responseDiv.style.color = 'red';
+        return;
+    }
+
+    if (!nameRegex.test(name)) {
+      responseDiv.innerText = 'Il nome deve contenere almeno 3 lettere e solo caratteri alfabetici.';
+      responseDiv.style.color = 'red';
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      responseDiv.innerText = 'Inserisci un indirizzo email valido (es. nome@dominio.com).';
+      responseDiv.style.color = 'red';
+      return;
+    }
+
+    // Envío al backend
+    fetch('https://greenservicetest-backend.onrender.com/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, message })
+    })
+    .then(response => response.text())
+    .then(data => {
+      responseDiv.innerText = data;
+      responseDiv.style.color = 'green';
+      form.reset();
+
+      setTimeout(() => {
+        responseDiv.innerText = '';
+      }, 5000);
+    })
+    .catch(error => {
+      responseDiv.innerText = 'Errore nell\'invio del messaggio.';
+      responseDiv.style.color = 'red';
+      console.error(error);
+    });
+  });
+</script>
+
 
     <!-- Ícono flotante de WhatsApp -->
     <div class="whatsapp-float">

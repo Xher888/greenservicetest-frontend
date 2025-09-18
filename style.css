@@ -540,14 +540,14 @@
         }
 
         .contact-item a {
-          color: var(--accent-color); /* Usá tu color principal */
+          color: var(--accent-color); 
           text-decoration: underline;
           font-weight: 500;
           transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
-          color: var(--primary-green); /* O un tono más oscuro */
+          color: var(--primary-green); 
           text-decoration: none;
         }
 
@@ -561,6 +561,16 @@
         .contact-link:hover {
           color: var(--light-green);
           text-decoration: none;
+        }
+
+        .error-message {
+          color: red;
+          font-size: 0.9em;
+          margin-bottom: 8px;
+        }
+
+        input.error, textarea.error {
+          border: 2px solid red;
         }
 
        .map-wrapper {
