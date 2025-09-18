@@ -425,6 +425,8 @@
       responseDiv.innerText = data;
       responseDiv.style.color = 'green';
       form.reset();
+      submitButton.classList.remove('loading');
+      submitButton.classList.add('success');
     })
     .catch(error => {
       responseDiv.innerText = 'Errore nell\'invio del messaggio.';
@@ -432,12 +434,12 @@
       console.error(error);
     })
     .finally(() => {
-      submitButton.classList.remove('loading');
+      setTimeout(() => {
+        responseDiv.innerText = '';
+        submitButton.classList.remove('success');
+  }, 5000);
+});
 
-    setTimeout(() => {
-      responseDiv.innerText = '';
-    }, 5000);
-    });
 
 });
 </script>
