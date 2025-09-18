@@ -264,7 +264,7 @@
                         <div>
                             <h4>Indirizzo</h4>
                             <p><a href="https://www.google.com/maps?q=Corso+Torino,+159,+10056+Oulx,+TO" target="_blank" class="contact-link">Corso Torino, 159, 10056 Oulx, TO (GARDEN CENTER)</a></p>
-                            <p><a href="https://www.google.com/maps?q=Corso+Torino,+159,+10056+Oulx,+TO" target="_blank" class="contact-link">Corso Torino, 128, 10056 Oulx, TO (BRICO - AGRARIA)</a></p>
+                            <p><a href="https://www.google.com/maps?q=Corso+Torino,+128,+10056+Oulx,+TO" target="_blank" class="contact-link">Corso Torino, 128, 10056 Oulx, TO (BRICO - AGRARIA)</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -363,6 +363,7 @@
     e.preventDefault();
 
     const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
     const nameInput = form.querySelector('[name="name"]');
     const emailInput = form.querySelector('[name="email"]');
     const messageInput = form.querySelector('[name="message"]');
@@ -408,6 +409,9 @@
       return;
     }
 
+   // Activar spinner en el botón
+      submitButton.classList.add('loading');
+
     // Envío al backend
     fetch('https://greenservicetest-backend.onrender.com/contact', {
       method: 'POST',
@@ -421,17 +425,21 @@
       responseDiv.innerText = data;
       responseDiv.style.color = 'green';
       form.reset();
-
-      setTimeout(() => {
-        responseDiv.innerText = '';
-      }, 5000);
     })
     .catch(error => {
       responseDiv.innerText = 'Errore nell\'invio del messaggio.';
       responseDiv.style.color = 'red';
       console.error(error);
+    })
+    .finally(() => {
+      submitButton.classList.remove('loading');
+
+    setTimeout(() => {
+      responseDiv.innerText = '';
+    }, 5000);
     });
-  });
+
+});
 </script>
 
 
