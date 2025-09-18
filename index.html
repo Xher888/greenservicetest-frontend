@@ -359,6 +359,7 @@
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const form = e.target;
     const nameInput = form.querySelector('[name="name"]');
     const emailInput = form.querySelector('[name="email"]');
     const messageInput = form.querySelector('[name="message"]');
