@@ -365,10 +365,12 @@
     const nameInput = form.querySelector('[name="name"]');
     const emailInput = form.querySelector('[name="email"]');
     const messageInput = form.querySelector('[name="message"]');
+    const phoneInput = form.querySelector('[name="phone"]');
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
+    const phone = phoneInput.value.trim();
 
     const errorName = document.getElementById('errorName');
     const errorEmail = document.getElementById('errorEmail');
@@ -379,6 +381,7 @@
     // Validaciones
     const nameRegex = /^[A-Za-zÀ-ÿ\s]{3,}$/;
     const emailRegex = /^[^@]{2,}@[^@]+\.[a-zA-Z]{2,}$/;
+    const phoneRegex = /^\+?[0-9\s\-]{7,}$/;
 
     if (!name || !email || !message) {
         responseDiv.innerText = 'Tutti i campi sono obbligatori.';
@@ -397,6 +400,12 @@
       responseDiv.style.color = 'red';
       return;
     }
+    
+    if (!phoneRegex.test(phone)) {
+      responseDiv.innerText = 'Inserisci un numero di telefono valido.';
+      responseDiv.style.color = 'red';
+      return;
+    }
 
     // Envío al backend
     fetch('https://greenservicetest-backend.onrender.com/contact', {
@@ -404,7 +413,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, phone, message })
     })
     .then(response => response.text())
     .then(data => {
