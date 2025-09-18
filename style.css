@@ -639,21 +639,6 @@
           animation: spin 0.8s linear infinite;
         }
 
-        button.success {
-          position: relative;
-          color: transparent !important;
-          pointer-events: none;
-        }
-
-        button.success::after {
-          content: "✅";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 18px;
-        }
-
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
