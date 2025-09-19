@@ -732,6 +732,7 @@
                 width: 100%;
                 text-align: center;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                margin-bottom: 0.8rem;
             }
             
             .mobile-menu {
