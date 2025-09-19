@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="language" content="it">
     <meta http-equiv="Content-Language" content="it">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Service | Vivaio, Pulizia, Giardinaggio e Noleggio Macchinari in Valsusa</title>
     <meta name="description" content="Green Service vivaio e servizi ecologici in Valsusa. Pulizia, giardinaggio, sgombero neve e noleggio macchinari.">
     <meta name="keywords" content="vivaio Valsusa, servizi di pulizia, giardinaggio Alta Valsusa, manutenzione edilizia, sgombero neve, noleggio macchinari, Green Service, canne fumarie">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Green Service">
     <link rel="canonical" href="https://www.greenservice.it/">
+    <meta name="theme-color" content="#4CAF50">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Green Service | Valsusa: Vivaio, Pulizia, Giardinaggio e Noleggio Macchinari in Alta Valsusa">
@@ -40,10 +40,6 @@
     <!-- Navbar -->
     <nav class="navbar" role="navigation">
         <div class="container">
-            <!--<a href="#" class="logo">
-                <i class="fas fa-leaf"></i>
-                <span>Green Service</span>
-            </a>-->
             <a href="#" class="logo">
                 <img src="img/gs_logo.png" alt="Green Service Logo" />
                 <span>Green Service</span>
@@ -56,11 +52,11 @@
                 <li><a href="#location">Dove siamo</a></li>
                 <li><a href="#contact">Contatti</a></li>
             </ul>
-            <div class="mobile-menu" id="mobileMenu" role="button" aria-label="Apri il menu di navigazione">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Apri il menu di navigazione">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
         </div>
     </nav>
 
@@ -358,7 +354,7 @@
   enlace.setAttribute("target", "_blank");
   enlace.style.cursor = "pointer";
 
-  // Stay on Site + Validaciones
+  // Stay on Site
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
