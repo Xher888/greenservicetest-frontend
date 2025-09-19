@@ -742,16 +742,19 @@
               display: flex;
               flex-direction: column;
               justify-content: center;
-              gap: 5px;
+              align-items: center;
+              gap: 4px;
+              width: 40px;
+              height: 40px;
             }
 
             .mobile-menu span {
               display: block;
-              width: 25px;
-              height: 3px;
-              background-color: #333; 
-              border-radius: 2px;
-              transition: all 0.3s ease;
+              width: 24px;
+              height: 2px;
+              background-color: #fff; 
+              border-radius: 1px;
+              transition: all 0.3s ease, opacity 0.3s ease;
             }
 
             .mobile-menu {
