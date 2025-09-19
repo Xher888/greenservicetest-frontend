@@ -822,6 +822,32 @@
                 width: 95%;
                 padding: 0 15px;
             }
+            
+            .about-overlay {
+                padding: 3rem 1.5rem;
+                display: block;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .about-overlay span {
+                margin-bottom: 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .service-list {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+             .service-list li {
+                margin-bottom: 1rem;
+            }          
+
+            .service-list li:last-child {
+                margin-bottom: 0rem;
+            }
         }
 
         @media (max-width: 480px) {
