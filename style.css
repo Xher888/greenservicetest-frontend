@@ -747,6 +747,7 @@
               gap: 4px;
               width: 28px;
               height: 28px;
+              overflow: hidden;
             }
 
             .mobile-menu span {
@@ -759,7 +760,7 @@
             }
 
             .mobile-menu.active span:nth-child(1) {
-              transform: rotate(45deg) translate(1px, 1px);
+              transform: rotate(45deg) translate(0.5px, 0.5px);
             }
 
             .mobile-menu.active span:nth-child(2) {
@@ -767,7 +768,7 @@
             }
 
             .mobile-menu.active span:nth-child(3) {
-              transform: rotate(-45deg) translate(1px, -1px);    
+              transform: rotate(-45deg) translate(0.5px, -0.5px);    
             }
 
             .about-content,
