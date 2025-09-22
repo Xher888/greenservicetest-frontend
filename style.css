@@ -754,7 +754,6 @@
             .nav-links a::after {
                 content: none;
             }
-
             
             .mobile-menu {
               display: flex;
@@ -809,6 +808,11 @@
             .mobile-menu.active span:nth-child(3) {
               transform: translateX(-50%) rotate(-45deg);
               top: 14px;
+            }
+            
+            .hero {
+              background-position: center 85%;
+              min-height: 60vh; 
             }
 
             .about-content,
