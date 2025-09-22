@@ -143,7 +143,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(45, 122, 45, 0.6), rgba(27, 94, 32, 0.6)), 
-                        url('img/fondo3.jpg') no-repeat center 75%/cover;
+                        url('img/fondo6.jpg') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -808,11 +808,6 @@
             .mobile-menu.active span:nth-child(3) {
               transform: translateX(-50%) rotate(-45deg);
               top: 14px;
-            }
-            
-            .hero {
-              background-position: center 85%;
-              min-height: 60vh; 
             }
 
             .about-content,
