@@ -225,7 +225,7 @@
 
         /* About Us */
         #about-us {
-            background: var(--bg-white);
+            background: linear-gradient(to bottom, #f8f9fa, rgba(102, 187, 106, 0.04));
         }
 
         .about-content {
@@ -348,7 +348,7 @@
 
         /* Gallery */
         #gallery {
-            background: var(--bg-white);
+            background: linear-gradient(to bottom, #f8f9fa, rgba(102, 187, 106, 0.04));
         }
 
         .gallery-grid {
@@ -451,7 +451,7 @@
 
         /* Contact */
         #contact {
-            background: var(--bg-white);
+            background: linear-gradient(to bottom, #f8f9fa, rgba(102, 187, 106, 0.04));
         }
 
         .contact-content {
@@ -572,6 +572,10 @@
 
         input.error, textarea.error {
           border: 2px solid red;
+        }
+
+        #location {
+          background: var(--bg-light);
         }
 
         .map-wrapper {
