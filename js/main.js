@@ -64,7 +64,7 @@
     // Validaciones
     const nameRegex = /^[A-Za-zÀ-ÿ\s]{3,}$/;
     const emailRegex = /^[^@]{2,}@[^@]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^\+?[0-9\s\-]{7,}$/;
+    const phoneRegex = /^(?:\+39)?\s?(0|\d{3})\s?\d{6,8}$/;
 
     if (!name || !email || !message) {
         responseDiv.innerText = 'Tutti i campi sono obbligatori.';
