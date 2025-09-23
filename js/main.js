@@ -116,6 +116,17 @@
     }
   });
   }
+  
+  // Subtitulos
+	  document.addEventListener('DOMContentLoaded', function () {
+	  const video = document.getElementById('videoArrivare');
+	  const tracks = video.textTracks;
+
+	  if (tracks.length > 0) {
+		tracks[0].mode = 'showing'; 
+	  }
+	});
+
 
    // Activar spinner en el botón
       submitButton.classList.add('loading');
