@@ -90,6 +90,33 @@
       return;
     }
 
+  // Video "Come Arrivare" - reproducción condizionata
+  const videoArrivare = document.getElementById('videoArrivare');
+
+  if (videoArrivare) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            videoArrivare.loop = true;
+            videoArrivare.play();
+        } else {
+          videoArrivare.loop = false;
+          videoArrivare.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+
+  observer.observe(videoArrivare);
+  
+  // Reinicio manuale del loop se il browser ignora l'attributo
+  videoArrivare.addEventListener('ended', () => {
+    if (videoArrivare.loop) {
+      videoArrivare.currentTime = 0;
+      videoArrivare.play().catch(() => {});
+    }
+  });
+  }
+
    // Activar spinner en el botón
       submitButton.classList.add('loading');
 

@@ -607,6 +607,30 @@
           box-shadow: var(--shadow);
         }
 
+        #come-arrivare {
+          background: linear-gradient(to bottom, var(--bg-white), var(--bg-light));
+          padding: 3rem 0;
+        }
+
+        #come-arrivare .section-title {
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
+        }
+
+        #come-arrivare p {
+          font-size: 1rem;
+          color: var(--text-light);
+          margin-bottom: 1.5rem;
+        }
+
+        .video-wrapper {
+          max-width: 700px;
+          margin: 0 auto;
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow);
+          overflow: hidden;
+        }
+
         .whatsapp-float {
           position: fixed;
           bottom: 20px;
@@ -867,6 +891,14 @@
 
                 .map-frame {
                   height: 250px;
+            }
+            
+            #come-arrivare {
+                  padding: 2rem 0;
+            }
+
+            .video-wrapper {
+                  max-width: 100%;
             }
 
         }
