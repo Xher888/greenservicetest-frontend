@@ -143,4 +143,13 @@ if (videoArrivare && wrapper) {
     videoArrivare.currentTime = 0;
     videoArrivare.play().catch(() => {});
   });
+  
+  // Scroll al top al hacer clic en el logo
+  document.querySelector('.logo').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 }
