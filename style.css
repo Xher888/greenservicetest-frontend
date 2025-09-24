@@ -656,6 +656,32 @@
         .whatsapp-float a:hover {
           background-color: #1ebe5d;
         }
+		
+		.scroll-top-float {
+		  position: fixed;
+		  bottom: 90px;
+		  left: 20px;
+		  z-index: 1000;
+		}
+
+		.scroll-top-float a {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  width: 55px;
+		  height: 55px;
+		  background-color: #007bff;
+		  color: white;
+		  border-radius: 50%;
+		  font-size: 24px;
+		  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		  transition: background-color 0.3s ease;
+		  text-decoration: none;
+		}
+
+		.scroll-top-float a:hover {
+		  background-color: #0056b3;
+		}
 
         button.loading {
           position: relative;
