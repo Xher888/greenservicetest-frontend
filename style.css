@@ -251,7 +251,7 @@
 			justify-content: center;
 			color: white;
 			text-align: center;
-			background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+			background-image: url('img/special.png');
 			background-size: cover;
 			background-position: center;
 			position: relative;
@@ -536,12 +536,12 @@
         }
 
         .contact-item div p {
-            color: var(--text-light);
+            color: var(--primary-green);
             margin: 0;
         }
 
         .contact-item a {
-          color: var(--accent-color); 
+          color: var(--primary-green); 
           text-decoration: underline;
           font-weight: 500;
           transition: color 0.3s ease;
@@ -659,7 +659,7 @@
 		
 		.scroll-top-float {
 		  position: fixed;
-		  bottom: 90px;
+		  bottom: 20px;
 		  left: 20px;
 		  z-index: 1000;
 		}
@@ -668,9 +668,9 @@
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
-		  width: 55px;
-		  height: 55px;
-		  background-color: #007bff;
+		  width: 35px;
+		  height: 35px;
+		  background-color: #25D366;
 		  color: white;
 		  border-radius: 50%;
 		  font-size: 24px;
@@ -680,7 +680,7 @@
 		}
 
 		.scroll-top-float a:hover {
-		  background-color: #0056b3;
+		  background-color: #1ebe5d;
 		}
 
         button.loading {
