@@ -942,10 +942,7 @@
 
         @media (max-width: 480px) {
             .hero {
-                min-height: auto;
-                padding-top: 6rem;
-                padding-bottom: 3rem;
-                display: block;
+                padding: 0 1rem;
             }
 
             .hero h1 {
