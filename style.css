@@ -945,6 +945,11 @@
                 padding: 0 1rem;
             }
 
+            .hero-content {
+                position: relative;
+                top: -2rem; 
+            }
+
             .hero h1 {
                 font-size: 1.8rem;
                 line-height: 1.3;
