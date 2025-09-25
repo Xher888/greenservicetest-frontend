@@ -36,6 +36,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 <body>
     <!-- Navbar -->
@@ -375,6 +376,27 @@
       </a>
     </div>
     
-   <script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Cookie Consent -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+        palette: {
+            popup: { background: "#2c3e50", text: "#ffffff" },
+            button: { background: "#f1d600", text: "#000000" }
+        },
+        theme: "classic",
+        position: "bottom",
+        content: {
+            message: "Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.",
+            dismiss: "Accetta",
+            link: "Leggi di più",
+            href: "/privacy.html"
+        }
+        });
+    });
+    </script>
 </body>
 </html>
