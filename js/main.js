@@ -114,8 +114,8 @@ submitButton.classList.add('loading');
       throw new Error('Errore di rete');
     }
 
-    const data = await response.text();
-    responseDiv.innerText = data;
+    const data = await response.json();
+    responseDiv.innerText = data.message;
     responseDiv.style.color = 'green';
     form.reset();
   } catch (error) {
