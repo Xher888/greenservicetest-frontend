@@ -132,12 +132,41 @@
         }
 
         .mobile-menu span {
-            width: 20px;
+            display: block;
+            width: 22px;
             height: 2px;
-            background: white;
-            margin: 3px 0;
+            background-color: white;
             border-radius: 1px;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .mobile-menu span:nth-child(1) {
+            top: 8px;
+        }
+
+        .mobile-menu span:nth-child(2) {
+            top: 14px;
+        }
+
+        .mobile-menu span:nth-child(3) {
+            top: 20px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: translateX(-50%) rotate(45deg);
+            top: 14px;
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: translateX(-50%) rotate(-45deg);
+            top: 14px;
         }
 
         /* Hero Section */
@@ -834,7 +863,7 @@
             }
             
             .nav-links a::after {
-                content: none;
+                display: none;
             }
             
             .mobile-menu {
@@ -852,18 +881,6 @@
               cursor: pointer;
               position: relative;
               overflow: hidden;
-            }
-
-            .mobile-menu span {
-              display: block;
-              width: 22px;
-              height: 2px;
-              background-color: white;
-              border-radius: 1px;
-              transition: transform 0.3s ease, opacity 0.3s ease;
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
             }
 
             .mobile-menu span:nth-child(1) {
@@ -912,10 +929,10 @@
                 width: 95%;
                 padding: 0 15px;
             }
-            
+
             .about-overlay {
                 padding: 3rem 1.5rem;
-                display: block;
+                display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
