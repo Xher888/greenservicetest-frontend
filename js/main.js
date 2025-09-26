@@ -57,68 +57,80 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
   const errorName = document.getElementById('errorName');
   const errorEmail = document.getElementById('errorEmail');
+  const errorPhone = document.getElementById('errorPhone');
   const errorMessage = document.getElementById('errorMessage');
   const responseDiv = document.getElementById('formResponse');
+
+  // Limpiar errores previos
+  errorName.innerText = '';
+  errorEmail.innerText = '';
+  errorPhone.innerText = '';
+  errorMessage.innerText = '';
+  responseDiv.innerText = '';
 
   // Validaciones
   const nameRegex = /^[A-Za-zÀ-ÿ\s]{3,}$/;
   const emailRegex = /^[^@]{2,}@[^@]+\.[a-zA-Z]{2,}$/;
   const phoneRegex = /^(?:\+39)?\s?(0|\d{3})\s?\d{6,8}$/;
 
-  if (!name || !email || !message) {
-    responseDiv.innerText = 'Tutti i campi sono obbligatori.';
-    responseDiv.style.color = 'red';
-    return;
-  }
+  let hasError = false;
 
   if (!nameRegex.test(name)) {
-    responseDiv.innerText = 'Il nome deve contenere almeno 3 lettere e solo caratteri alfabetici.';
-    responseDiv.style.color = 'red';
-    return;
+    errorName.innerText = 'Il nome deve contenere almeno 3 lettere e solo caratteri alfabetici.';
+    hasError = true;
   }
 
   if (!emailRegex.test(email)) {
-    responseDiv.innerText = 'Inserisci un indirizzo email valido (es. nome@dominio.com).';
-    responseDiv.style.color = 'red';
-    return;
+    errorEmail.innerText = 'Inserisci un indirizzo email valido.';
+    hasError = true;
   }
 
   if (!phoneRegex.test(phone)) {
-    responseDiv.innerText = 'Inserisci un numero di telefono valido.';
-    responseDiv.style.color = 'red';
-    return;
+    errorPhone.innerText = 'Inserisci un numero di telefono valido.';
+    hasError = true;
   }
 
-  // Activar spinner en el botón
-  submitButton.classList.add('loading');
+  if (!message) {
+    errorMessage.innerText = 'Il messaggio non può essere vuoto.';
+    hasError = true;
+  }
 
-  // Envío al backend
-  fetch('https://greenservicetest-backend.onrender.com/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, email, phone, message })
-  })
-  .then(response => response.text())
-  .then(data => {
-    responseDiv.innerText = data;
-    responseDiv.style.color = 'green';
-    form.reset();
-    submitButton.classList.remove('loading');
-    submitButton.innerText = '✅';
-  })
-  .catch(error => {
-    responseDiv.innerText = 'Errore nell\'invio del messaggio.';
-    responseDiv.style.color = 'red';
-    console.error(error);
-  })
-  .finally(() => {
-    setTimeout(() => {
-      responseDiv.innerText = 'Messaggio inviato ✅';
-      submitButton.innerText = 'Inviare messaggio';
-    }, 5000);
-  });
+  if (hasError) return;
+
+submitButton.disabled = true;
+submitButton.classList.add('loading');
+
+
+// Envío al backend
+fetch('https://greenservicetest-backend.onrender.com/contact', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name, email, phone, message })
+})
+.then(async response => {
+  if (!response.ok) {
+    throw new Error('Errore di rete');
+  }
+  const data = await response.text();
+  responseDiv.innerText = data;
+  responseDiv.style.color = 'green';
+  form.reset();
+})
+
+.catch(error => {
+  responseDiv.innerText = 'Errore nell\'invio del messaggio.';
+  responseDiv.style.color = 'red';
+  console.error(error);
+})
+.finally(() => {
+  submitButton.classList.remove('loading');
+  submitButton.disabled = false;
+  setTimeout(() => {
+    responseDiv.innerText = 'Messaggio inviato ✅';
+  }, 5000);
+});
 });
 
 // Video "Come Arrivare" – reproducción condizionata
@@ -138,11 +150,11 @@ if (videoArrivare && wrapper) {
 
   observer.observe(wrapper);
 
-  // Refuerzo manual del loop por si el navegador lo ignora
-  videoArrivare.addEventListener('ended', () => {
-    videoArrivare.currentTime = 0;
-    videoArrivare.play().catch(() => {});
-  });
+// Refuerzo manual del loop por si el navegador lo ignora
+videoArrivare.addEventListener('ended', () => {
+  videoArrivare.currentTime = 0;
+  videoArrivare.play().catch(() => {});
+});
 }
    
 // Scroll al top al hacer clic en el botón flotante
@@ -162,5 +174,3 @@ document.querySelector('.logo').addEventListener('click', function(e) {
     behavior: 'smooth'
   });
 });
-
-
