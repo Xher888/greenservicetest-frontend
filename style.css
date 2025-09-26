@@ -925,20 +925,6 @@
                 font-size: 1.2rem;
             }
             
-            .service-list {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-
-             .service-list li {
-                margin-bottom: 1rem;
-            }          
-
-            .service-list li:last-child {
-                margin-bottom: 0rem;
-            }
-            
             .map-wrapper {
                   grid-template-columns: 1fr;
             }
