@@ -100,37 +100,36 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 submitButton.disabled = true;
 submitButton.classList.add('loading');
 
+(async () => {
+  try {
+    const response = await fetch('https://greenservicetest-backend.onrender.com/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, phone, message })
+    });
 
-// Envío al backend
-fetch('https://greenservicetest-backend.onrender.com/contact', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ name, email, phone, message })
-})
-.then(async response => {
-  if (!response.ok) {
-    throw new Error('Errore di rete');
+    if (!response.ok) {
+      throw new Error('Errore di rete');
+    }
+
+    const data = await response.text();
+    responseDiv.innerText = data;
+    responseDiv.style.color = 'green';
+    form.reset();
+  } catch (error) {
+    responseDiv.innerText = 'Errore nell\'invio del messaggio.';
+    responseDiv.style.color = 'red';
+    console.error(error);
+  } finally {
+    submitButton.classList.remove('loading');
+    submitButton.disabled = false;
+    setTimeout(() => {
+      responseDiv.innerText = 'Messaggio inviato ✅';
+    }, 5000);
   }
-  const data = await response.text();
-  responseDiv.innerText = data;
-  responseDiv.style.color = 'green';
-  form.reset();
-})
-
-.catch(error => {
-  responseDiv.innerText = 'Errore nell\'invio del messaggio.';
-  responseDiv.style.color = 'red';
-  console.error(error);
-})
-.finally(() => {
-  submitButton.classList.remove('loading');
-  submitButton.disabled = false;
-  setTimeout(() => {
-    responseDiv.innerText = 'Messaggio inviato ✅';
-  }, 5000);
-});
+})();
 });
 
 // Video "Come Arrivare" – reproducción condizionata
