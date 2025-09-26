@@ -659,57 +659,50 @@
           overflow: hidden;
         }
 
-        .whatsapp-float {
+        .whatsapp-float,
+        .scroll-top-float {
           position: fixed;
           bottom: 20px;
-          right: 20px;
           z-index: 1000;
         }
 
-        .whatsapp-float a {
+        .whatsapp-float {
+          right: 20px;
+        }
+
+        .scroll-top-float {
+          left: 20px;
+        }
+
+        .whatsapp-float a,
+        .scroll-top-float a {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 55px;
-          height: 55px;
           background-color: #25D366;
           color: white;
           border-radius: 50%;
-          font-size: 28px;
           box-shadow: 0 4px 8px rgba(0,0,0,0.2);
           transition: background-color 0.3s ease;
           text-decoration: none;
         }
 
-        .whatsapp-float a:hover {
+        .whatsapp-float a {
+          width: 55px;
+          height: 55px;
+          font-size: 28px;
+        }
+
+        .scroll-top-float a {
+          width: 35px;
+          height: 35px;
+          font-size: 24px;
+        }
+
+        .whatsapp-float a:hover,
+        .scroll-top-float a:hover {
           background-color: #1ebe5d;
         }
-		
-		.scroll-top-float {
-		  position: fixed;
-		  bottom: 20px;
-		  left: 20px;
-		  z-index: 1000;
-		}
-
-		.scroll-top-float a {
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		  width: 35px;
-		  height: 35px;
-		  background-color: #25D366;
-		  color: white;
-		  border-radius: 50%;
-		  font-size: 24px;
-		  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-		  transition: background-color 0.3s ease;
-		  text-decoration: none;
-		}
-
-		.scroll-top-float a:hover {
-		  background-color: #1ebe5d;
-		}
 
         button.loading {
           position: relative;
@@ -801,6 +794,13 @@
           opacity: 0;
         }
 
+        .delay-1s {
+            animation-delay: 1s;
+        }
+
+        .delay-02s {
+        animation-delay: 0.2s;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
