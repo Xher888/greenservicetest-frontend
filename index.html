@@ -37,6 +37,36 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Green Service",
+    "image": "https://greenserviceoulx.it/img/logo.png",
+    "description": "Vivaio, servizi ecologici e noleggio macchinari in Oulx, Alta Valsusa e Valsusa",
+    "url": "https://greenserviceoulx.it",
+    "telephone": "+39 0122 832236",
+    "email": "greenservice@live.it",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corso Torino 159",
+        "addressLocality": "Oulx",
+        "addressRegion": "TO",
+        "postalCode": "10056",
+        "addressCountry": "IT"
+    },
+    "openingHours": [
+        "Mo-Sa 08:30-12:30",
+        "Mo-Sa 14:30-19:30",
+        "Su 09:00-12:30",
+        "Su 16:00-19:30"
+    ],
+    "sameAs": [
+      // "https://www.facebook.com/greenserviceoulx",
+      // "https://www.instagram.com/greenservice"
+    ]
+}
+</script>    
 </head>
 <body>
     <!-- Navbar -->
@@ -54,10 +84,10 @@
                 <li><a href="#location">Dove siamo</a></li>
                 <li><a href="#contact">Contatti</a></li>
             </ul>
-            <button class="mobile-menu" id="mobileMenu" aria-label="Apri il menu di navigazione">
-              <span></span>
-              <span></span>
-              <span></span>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Apri il menu di navigazione" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
             </button>
         </div>
     </nav>
@@ -75,6 +105,7 @@
     </header>
 
     <!-- About Us Section -->
+    <main>
     <section id="about-us" aria-label="Informazioni sull'azienda">
         <div class="container">
             <h2 class="section-title">Chi Siamo</h2>
@@ -88,11 +119,11 @@
 					<div class="about-overlay fadeInUp delay-1s">
 						<span>I nostri servizi specializzati</span>
 							<ul class="service-list">
-							  <li>Pulizia professionale</li>
-							  <li>Noleggio macchinari</li>
-							  <li>Vendita fiori e piante</li>
-							  <li>Giardinaggio</li>
-							  <li>Sgombero neve</li>
+							<li>Pulizia professionale</li>
+							<li>Noleggio macchinari</li>
+							<li>Vendita fiori e piante</li>
+							<li>Giardinaggio</li>
+							<li>Sgombero neve</li>
 							</ul>
 					</div>
 				</div>
@@ -105,36 +136,36 @@
         <div class="container">
             <h2 class="section-title">I nostri servizi</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <article class="service-card">
                     <i class="fas fa-seedling"></i>
                     <h3>Service 1</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <i class="fas fa-leaf"></i>
                     <h3>Service 2</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <i class="fas fa-truck"></i>
                     <h3>Service 3</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>Service 4</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <i class="fa-solid fa-screwdriver-wrench"></i>
                     <h3>Service 5</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <i class="fa-solid fa-dog"></i>
                     <h3>Service 6</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit nascetur, cras montes sem felisongue.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -146,18 +177,18 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="img/foto1.jpg"
-                         srcset="img/foto1200x200 200w, img/foto1400x400.jpg 400w, img/foto1800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 1" loading="lazy">
+                        srcset="img/foto1200x200 200w, img/foto1400x400.jpg 400w, img/foto1800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 1" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 1</span>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="img/cleanBig.jpg" 
-                         srcset="img/clean200x200 200w, img/clean400x400.webp 400w, img/clean800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción foto 2" loading="lazy"/>
+                        srcset="img/clean200x200 200w, img/clean400x400.webp 400w, img/clean800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción foto 2" loading="lazy"/>
 
                     <div class="gallery-overlay">
                         <span>Photo 2</span>
@@ -165,54 +196,54 @@
                 </div>
                 <div class="gallery-item">
                     <img src="img/fix.jpg"
-                         srcset="img/fix200x200 200w, img/fix400x400.webp 400w, img/fix800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 3" loading="lazy">
+                        srcset="img/fix200x200 200w, img/fix400x400.webp 400w, img/fix800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 3" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 3</span>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="img/wood.jpg"
-                         srcset="img/wood200x200 200w, img/wood400x400.jpg 400w, img/wood800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 4" loading="lazy">
+                        srcset="img/wood200x200 200w, img/wood400x400.jpg 400w, img/wood800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 4" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 4</span>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="img/plant.jpg"
-                         srcset="img/plant200x200 200w, img/plant400x400.jpg 400w, img/plant800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 5" loading="lazy">
+                        srcset="img/plant200x200 200w, img/plant400x400.jpg 400w, img/plant800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 5" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 5</span>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="img/dog.jpg"
-                         srcset="img/dog200x200 200w, img/dog400x400.jpg 400w, img/dog800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 6" loading="lazy">
+                        srcset="img/dog200x200 200w, img/dog400x400.jpg 400w, img/dog800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 6" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 6</span>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="img/dog.jpg"
-                         srcset="img/dog200x200 200w, img/dog400x400.jpg 400w, img/dog800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 6" loading="lazy">
+                        srcset="img/dog200x200 200w, img/dog400x400.jpg 400w, img/dog800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 6" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 7</span>
                     </div>
                 </div> 
                 <div class="gallery-item">
                     <img src="img/foto1.jpg"
-                         srcset="img/foto1200x200 200w, img/foto1400x400.jpg 400w, img/foto1800x800.jpg 800w" 
-                         sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
-                         alt="Descripción de la foto 1" loading="lazy">
+                        srcset="img/foto1200x200 200w, img/foto1400x400.jpg 400w, img/foto1800x800.jpg 800w" 
+                        sizes="(max-width: 600px) 200px, (max-width: 960px) 400px, 800px"
+                        alt="Descripción de la foto 1" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Photo 8</span>
                     </div>
@@ -257,8 +288,8 @@
                         <div class="error-message" id="errorPhone"></div>
                         <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
                         <div class="error-message" id="errorMessage"></div>
-                        <button type="submit">Inviare massaggio</button>
-                        <div id="formResponse" style="margin-top: 10px; color: green;"></div>
+                        <button type="submit">Inviare messaggio</button>
+                        <div id="formResponse" aria-live="polite" style="margin-top: 10px; color: green;"></div>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -296,73 +327,72 @@
             </div>
     </section>
     <!-- Map Section -->
-     <section id="location">
-      <div class="container">
+    <section id="location">
+    <div class="container">
         <h2 class="section-title">Dove trovarci</h2>
         <div class="map-wrapper">
-         <div class="map-block">
-          <h3 class="map-title">Garden Center</h3>
-          <iframe 
+        <div class="map-block">
+        <h3 class="map-title">Garden Center</h3>
+        <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2396.9611333359753!2d6.842581675499927!3d45.04338366141891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4789c1a403161a85%3A0xeb7f50dc583f83a3!2sCorso%20Torino%2C%20159%2C%2010056%20Oulx%20TO!5e1!3m2!1ses!2sit!4v1758625100125!5m2!1ses!2sit"
             class="map-frame" 
             allowfullscreen=""
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"
             title="Mappa dell Garden Center">
-          </iframe>
-         </div>
-         <div class="map-block">
-          <h3 class="map-title">Brico - Agraria</h3>
-          <iframe 
+        </iframe>
+        </div>
+        <div class="map-block">
+        <h3 class="map-title">Brico - Agraria</h3>
+        <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.0676767458303!2d6.8379550790503325!3d45.04084069766181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4789c1a3ac5346a3%3A0x2a228520d8c1c037!2sCorso%20Torino%2C%20128%2C%2010056%20Oulx%20TO!5e1!3m2!1ses!2sit!4v1758624602560!5m2!1ses!2sit" 
             class="map-frame"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Mappa della sede Brico - Agraria">            
-          </iframe>
-         </div>
+        </iframe>
         </div>
-      </div>
-     </section>
-     
-     <!-- Video Section -->
-     <section id="come-arrivare">
-      <div class="container">
+        </div>
+    </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section id="come-arrivare">
+    <div class="container">
         <h2 class="section-title">🎥 Come arrivare alla sede Brico-Agraria</h2>
         <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: var(--text-light);">
-          La sede Brico - Agraria non è facilmente visibile dalla strada. Guarda questo breve video per capire esattamente dove si trova e come raggiungerla.
+        La sede Brico - Agraria non è facilmente visibile dalla strada. Guarda questo breve video per capire esattamente dove si trova e come raggiungerla.
         </p>
         <div class="video-wrapper">
-          <video id="videoArrivare" muted loop controls playsinline poster="img/thumb_map.webp" width="100%">
+        <video id="videoArrivare" muted loop controls playsinline poster="img/thumb_map.webp" width="100%">
             <source src="video/arrivareSL.mp4" type="video/mp4">
             Il tuo browser non supporta il video.
-          </video>
+        </video>
         </div>
-      </div>
-     </section>
-     
+    </div>
+    </section>
+    </main>
     <!-- Footer -->
-   <footer role="contentinfo">
-      <div class="container">
-         <p>&copy; <span id="annoCorrente"></span> Green Service. Tutti i diritti riservati.</p>
-         <p class="crediti">
-          Design realizzato da 
+    <footer role="contentinfo">
+    <div class="container">
+        <p>&copy; <span id="annoCorrente"></span> Green Service. Tutti i diritti riservati.</p>
+        <p class="crediti">
+        Design realizzato da 
         <a id="correoDesigner">chRchDSGN</a>
         </p>
-
         <div class="social-icons" style="margin-top: 1rem;">
             <a href="https://www.facebook.com/greenserviceoulx/" target="_blank" title="Facebook" aria-label="Visita la nostra pagina Facebook">
-              <i class="fab fa-facebook"></i>
+            <i class="fab fa-facebook"></i>
             </a>
             <a href="https://www.instagram.com/tuPerfil" target="_blank" title="Instagram" aria-label="Visita il nostro profilo Instagram">
-              <i class="fab fa-instagram"></i>
+            <i class="fab fa-instagram"></i>
             </a>
             <a href="https://wa.me/393279070847" target="_blank" title="WhatsApp" aria-label="Scrivici su WhatsApp">
-              <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp"></i>
             </a>
         </div>
-      </div>
+    </div>
     </footer>
 
     <!-- Íconos flotantes de WhatsApp y Top -->

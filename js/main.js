@@ -1,4 +1,16 @@
-// Mobile menu toggle
+// Mobile menu toggle con aria-expanded
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenu.addEventListener('click', () => {
+  const isExpanded = mobileMenu.getAttribute('aria-expanded') === 'true';
+  mobileMenu.setAttribute('aria-expanded', String(!isExpanded));
+  mobileMenu.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+/*
+// Mobile menu toggle BORRAR SI EL OTRO ANDA BIEN!!!!!---------------
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
 
@@ -14,6 +26,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     navLinks.classList.remove('active');
   });
 });
+*/
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

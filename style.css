@@ -598,159 +598,159 @@
         }
 
         .contact-item a {
-          color: var(--primary-green); 
-          text-decoration: underline;
-          font-weight: 500;
-          transition: color 0.3s ease;
+            color: var(--primary-green); 
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
-          color: var(--primary-green); 
-          text-decoration: none;
+            color: var(--primary-green); 
+            text-decoration: none;
         }
 
         .contact-link {
-          color: var(--primary-green);
-          text-decoration: underline;
-          font-weight: 500;
-          transition: color 0.3s ease;
+            color: var(--primary-green);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .contact-link:hover {
-          color: var(--light-green);
-          text-decoration: none;
+            color: var(--light-green);
+            text-decoration: none;
         }
 
         .error-message {
-          color: red;
-          font-size: 0.9em;
-          margin-bottom: 8px;
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 8px;
         }
 
         input.error, textarea.error {
-          border: 2px solid red;
+            border: 2px solid red;
         }
 
         #location {
-          background: var(--bg-light);
+            background: var(--bg-light);
         }
 
         .map-wrapper {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-          margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .map-block {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .map-title {
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: var(--dark-green);
-          text-align: center;
-          margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            text-align: center;
+            margin: 0;
         }
 
         .map-frame {
-          width: 100%;
-          height: 300px;
-          border: none;
-          border-radius: var(--border-radius);
-          box-shadow: var(--shadow);
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
 
         #come-arrivare {
-          background: linear-gradient(to bottom, var(--bg-white), var(--bg-light));
-          padding: 3rem 0;
+            background: linear-gradient(to bottom, var(--bg-white), var(--bg-light));
+            padding: 3rem 0;
         }
 
         #come-arrivare .section-title {
-          font-size: 1.8rem;
-          margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         #come-arrivare p {
-          font-size: 1rem;
-          color: var(--text-light);
-          margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
         }
 
         .video-wrapper {
-          max-width: 700px;
-          margin: 0 auto;
-          border-radius: var(--border-radius);
-          box-shadow: var(--shadow);
-          overflow: hidden;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
         }
 
         .whatsapp-float,
         .scroll-top-float {
-          position: fixed;
-          bottom: 20px;
-          z-index: 1000;
+            position: fixed;
+            bottom: 20px;
+            z-index: 1000;
         }
 
         .whatsapp-float {
-          right: 20px;
+            right: 20px;
         }
 
         .scroll-top-float {
-          left: 20px;
+            left: 20px;
         }
 
         .whatsapp-float a,
         .scroll-top-float a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #25D366;
-          color: white;
-          border-radius: 50%;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-          transition: background-color 0.3s ease;
-          text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+            text-decoration: none;
         }
 
         .whatsapp-float a {
-          width: 55px;
-          height: 55px;
-          font-size: 28px;
+            width: 55px;
+            height: 55px;
+            font-size: 28px;
         }
 
         .scroll-top-float a {
-          width: 35px;
-          height: 35px;
-          font-size: 24px;
+            width: 35px;
+            height: 35px;
+            font-size: 24px;
         }
 
         .whatsapp-float a:hover,
         .scroll-top-float a:hover {
-          background-color: #1ebe5d;
+            background-color: #1ebe5d;
         }
 
         button.loading {
-          position: relative;
-          color: transparent !important;
-          pointer-events: none;
+            position: relative;
+            color: transparent !important;
+            pointer-events: none;
         }
 
         button.loading::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 18px;
-          height: 18px;
-          margin: -9px 0 0 -9px;
-          border: 2px solid #ccc;
-          border-top: 2px solid #2c3e50;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            margin: -9px 0 0 -9px;
+            border: 2px solid #ccc;
+            border-top: 2px solid #2c3e50;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
         }
 
         /* Footer */
@@ -762,45 +762,45 @@
         }
 
         .social-icons a {
-          margin: 0 10px;
-          font-size: 1.5rem;
-          color: floralwhite;
-          transition: color 0.3s ease;
-          text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: floralwhite;
+            transition: color 0.3s ease;
+            text-decoration: none;
         }
 
         .social-icons a:hover {
-          color: var(--light-green);
+            color: var(--light-green);
         }
 
         .social-icons a:hover i {
-          transform: scale(1.2);
-          transition: transform 0.3s ease;
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
         }
 
         .crediti {
-          font-size: 0.75rem;
-          opacity: 0.7;
-          margin-top: 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
         }
 
         .crediti a {
-          color: white;
-          text-decoration: underline;
+            color: white;
+            text-decoration: underline;
         }
 
         .crediti a:hover {
-          color: var(--light-green);
+            color: var(--light-green);
         }
 
         #correoDesigner {
-          color: inherit;
-          text-decoration: none;
+            color: inherit;
+            text-decoration: none;
         }
 
         #correoDesigner:hover {
-          text-decoration: underline;
-          color: var(--light-green);
+            text-decoration: underline;
+            color: var(--light-green);
         }
 
         /* Animaciones */
@@ -815,12 +815,12 @@
             }
         }
         @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
-          opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
         }
 
         .delay-1s {
@@ -867,46 +867,46 @@
             }
             
             .mobile-menu {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              gap: 5px;
-              width: 30px;
-              height: 30px;
-              background: none;
-              border: none;
-              padding: 0;
-              margin: 0;
-              cursor: pointer;
-              position: relative;
-              overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                width: 30px;
+                height: 30px;
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
             }
 
             .mobile-menu span:nth-child(1) {
-              top: 8px;
+                top: 8px;
             }
 
             .mobile-menu span:nth-child(2) {
-              top: 14px;
+                top: 14px;
             }
 
             .mobile-menu span:nth-child(3) {
-              top: 20px;
+                top: 20px;
             }
 
             .mobile-menu.active span:nth-child(1) {
-              transform: translateX(-50%) rotate(45deg);
-              top: 14px;
+                transform: translateX(-50%) rotate(45deg);
+                top: 14px;
             }
 
             .mobile-menu.active span:nth-child(2) {
-              opacity: 0;
+                opacity: 0;
             }
 
             .mobile-menu.active span:nth-child(3) {
-              transform: translateX(-50%) rotate(-45deg);
-              top: 14px;
+                transform: translateX(-50%) rotate(-45deg);
+                top: 14px;
             }
 
             .about-content,
@@ -938,19 +938,19 @@
             }
             
             .map-wrapper {
-                  grid-template-columns: 1fr;
+                grid-template-columns: 1fr;
             }
 
-                .map-frame {
-                  height: 250px;
+            .map-frame {
+                height: 250px;
             }
             
             #come-arrivare {
-                  padding: 2rem 0;
+                padding: 2rem 0;
             }
 
             .video-wrapper {
-                  max-width: 100%;
+                max-width: 100%;
             }
 
         }
