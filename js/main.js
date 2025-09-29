@@ -18,7 +18,7 @@ mobileMenu.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
   navLinks.classList.toggle('active');
 });
-
+*/
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
@@ -26,7 +26,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     navLinks.classList.remove('active');
   });
 });
-*/
+
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
