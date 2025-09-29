@@ -183,17 +183,17 @@ document.querySelector('.logo').addEventListener('click', function(e) {
   });
 });
 
-// Cookie consent banner
+// Cookie consent banner con animación
 document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.getElementById('cookieBanner');
   const acceptCookies = document.getElementById('acceptCookies');
 
   if (cookieBanner && acceptCookies && !localStorage.getItem('cookiesAccepted')) {
-    cookieBanner.style.display = 'block';
+    cookieBanner.classList.add('show');
 
     acceptCookies.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
-      cookieBanner.style.display = 'none';
+      cookieBanner.classList.remove('show');
     });
   }
 });
