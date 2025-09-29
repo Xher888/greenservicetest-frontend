@@ -94,11 +94,11 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <img src="img/fondo6.webp" alt="Green Service Oulx" class="hero-bg" loading="lazy">
+        <img src="img/fondomain.jpg" alt="Green Service Oulx" class="hero-bg" loading="lazy">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fadeInUp delay-02s">Green Service Oulx <br> Vivaio-Garden, Agraria-Brico, Multiservizi e Noleggi</h1>
-                <p class="fadeInUp delay-1s">Da Green Service trovi tutto per il verde, la casa e l’agricoltura: vivaio in Alta Valsusa, servizi ecologici per condomini, hotel e privati, manutenzioni domestiche, noleggio macchinari edili, articoli da brico-agraria, petshop e prodotti per animali da compagnia e da allevamento.</p>
+                <h1 class="fadeInUp delay-02s">Green Service Oulx <br> Vivaio-Garden<br> Agraria-Brico<br> Multiservizi<br> Noleggi</h1>
+                
                 <a href="#services" class="hero-btn" role="button" aria-label="Vai alla sezione servizi">Nostri servizi</a>
             </div>
         </div>
@@ -111,7 +111,7 @@
             <h2 class="section-title">Chi Siamo</h2>
             <div class="about-content">
                 <div class="about-text fadeInUp delay-1s">
-                    <p>Green Service nasce con l’obiettivo di offrire soluzioni complete per la cura del verde, la manutenzione degli spazi e i servizi domestici e condominiali. Con anni di esperienza e un team qualificato, ci occupiamo di giardinaggio, pulizie, lavori edili e molto altro.</p>
+                    <p>Green Service nasce nel 1988 per offrirvi la cura e le manutenzione della vostra casa, . Con anni di esperienza e un team qualificato, ci occupiamo di giardinaggio, pulizie, lavori edili e molto altro.</p>
                 </div>
                 <div class="about-image">
                     <img src="img/special.webp" alt="Servizi specializzati" class="about-bg" loading="lazy">
@@ -417,33 +417,34 @@
     
     <script src="/js/main.js" defer></script>
 
-    <!-- Cookie Consent-->
-    <div id="cookieBanner" class="cookie-banner" aria-live="polite">
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-live="polite">
         <div class="cookie-content">
-            <p>Questo sito utilizza cookie per migliorare l’esperienza utente e mostrare annunci personalizzati. <a href="privacy.html" target="_blank" rel="noopener noreferrer">Leggi la privacy policy</a>.</p>
-            <button id="acceptCookies">Accetta</button>
+            <p>
+            Questo sito utilizza cookie tecnici, analitici e di marketing per migliorare l’esperienza utente e mostrare annunci personalizzati.
+            <a href="privacy.html" target="_blank" rel="noopener noreferrer">Leggi la privacy policy</a>.
+            </p>
+            <div class="cookie-buttons">
+                <button id="acceptAll">Accetta tutto</button>
+                <button id="customize">Personalizza</button>
+            </div>
         </div>
     </div>
 
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-    <script>
-    window.addEventListener("load", function(){
-        window.cookieconsent.initialise({
-        palette: {
-            popup: { background: "#2c3e50", text: "#ffffff" },
-            button: { background: "#f1d600", text: "#000000" }
-        },
-        theme: "classic",
-        position: "bottom",
-        content: {
-            message: "Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.",
-            dismiss: "Accetta",
-            link: "Leggi di più",
-            href: "/privacy.html"
-        }
-        });
-    });
-    </script>-->
+    <!-- Modal di personalizzazione -->
+    <div id="cookieModal" class="cookie-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="cookie-modal-content">
+            <h2>Preferenze cookie</h2>
+            <form id="cookieForm">
+            <label><input type="checkbox" name="technical" checked disabled> Cookie tecnici (necessari)</label><br>
+            <label><input type="checkbox" name="analytics"> Cookie analitici</label><br>
+            <label><input type="checkbox" name="marketing"> Cookie di marketing (es. Google Ads)</label><br>
+            <div class="cookie-modal-actions">
+                <button type="submit">Salva preferenze</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

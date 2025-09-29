@@ -754,6 +754,54 @@
             background: #66bb6a;
         }
 
+        /* Cookie Consent - Estilos adicionales */
+            .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .cookie-modal[aria-hidden="false"] {
+            display: flex;
+        }
+
+        .cookie-modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            color: #2c3e50;
+        }
+
+        .cookie-modal-content h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cookie-modal-actions {
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .cookie-modal-content label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
         .whatsapp-float a,
         .scroll-top-float a {
             display: flex;
@@ -1013,6 +1061,25 @@
             .cookie-banner button {
                 width: 100%;
                 margin-left: 0;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .cookie-buttons button {
+                width: 100%;
+            }
+
+            .cookie-modal-content {
+                padding: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .cookie-modal-actions {
+                text-align: center;
             }
         }
 

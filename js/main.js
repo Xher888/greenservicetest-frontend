@@ -183,17 +183,44 @@ document.querySelector('.logo').addEventListener('click', function(e) {
   });
 });
 
-// Cookie consent banner con animación
+// Cookie consent avanzado
 document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.getElementById('cookieBanner');
-  const acceptCookies = document.getElementById('acceptCookies');
+  const cookieModal = document.getElementById('cookieModal');
+  const acceptAll = document.getElementById('acceptAll');
+  const customize = document.getElementById('customize');
+  const cookieForm = document.getElementById('cookieForm');
 
-  if (cookieBanner && acceptCookies && !localStorage.getItem('cookiesAccepted')) {
+  // Mostrar banner si no hay preferencias guardadas
+  if (!localStorage.getItem('cookiePreferences')) {
     cookieBanner.classList.add('show');
-
-    acceptCookies.addEventListener('click', () => {
-      localStorage.setItem('cookiesAccepted', 'true');
-      cookieBanner.classList.remove('show');
-    });
   }
+
+  // Aceptar todas las cookies
+  acceptAll.addEventListener('click', () => {
+    localStorage.setItem('cookiePreferences', JSON.stringify({
+      technical: true,
+      analytics: true,
+      marketing: true
+    }));
+    cookieBanner.classList.remove('show');
+  });
+
+  // Abrir modal de personalización
+  customize.addEventListener('click', () => {
+    cookieModal.setAttribute('aria-hidden', 'false');
+  });
+
+  // Guardar preferencias desde el formulario
+  cookieForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const prefs = {
+      technical: true,
+      analytics: cookieForm.analytics.checked,
+      marketing: cookieForm.marketing.checked
+    };
+    localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+    cookieModal.setAttribute('aria-hidden', 'true');
+    cookieBanner.classList.remove('show');
+  });
 });
