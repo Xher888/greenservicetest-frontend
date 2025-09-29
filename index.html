@@ -288,6 +288,11 @@
                         <div class="error-message" id="errorPhone"></div>
                         <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
                         <div class="error-message" id="errorMessage"></div>
+                        <!-- Honeypot -->
+                        <div style="display: none;">
+                            <label for="website">Non compilare questo campo</label>
+                            <input type="text" id="website" name="website" autocomplete="off">
+                        </div>
                         <button type="submit">Inviare messaggio</button>
                         <div id="formResponse" aria-live="polite" style="margin-top: 10px; color: green;"></div>
                     </form>

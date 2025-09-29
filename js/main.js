@@ -9,24 +9,14 @@ mobileMenu.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-/*
-// Mobile menu toggle BORRAR SI EL OTRO ANDA BIEN!!!!!---------------
-const mobileMenu = document.getElementById('mobileMenu');
-const navLinks = document.getElementById('navLinks');
-
-mobileMenu.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-  navLinks.classList.toggle('active');
-});
-*/
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
     navLinks.classList.remove('active');
+	mobileMenu.setAttribute('aria-expanded', 'false');
   });
 });
-
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -57,6 +47,13 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const form = e.target;
+  const responseDiv = document.getElementById('formResponse');
+  const honeypotInput = form.querySelector('[name="website"]');
+	if (honeypotInput.value.trim() !== '') {
+	  responseDiv.innerText = 'Spam rilevato. Invio bloccato.';
+	  responseDiv.style.color = 'red';
+	  return;
+	}
   const submitButton = form.querySelector('button[type="submit"]');
   const nameInput = form.querySelector('[name="name"]');
   const emailInput = form.querySelector('[name="email"]');
@@ -72,7 +69,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   const errorEmail = document.getElementById('errorEmail');
   const errorPhone = document.getElementById('errorPhone');
   const errorMessage = document.getElementById('errorMessage');
-  const responseDiv = document.getElementById('formResponse');
 
   // Limpiar errores previos
   errorName.innerText = '';
