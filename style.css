@@ -187,7 +187,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             object-position: center center;
             z-index: -1;
@@ -296,7 +296,7 @@
 
         .about-image {
             position: relative;
-            height: 400px;
+            height: 320px;
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
@@ -1126,6 +1126,6 @@
             }
 
             .about-image {
-                height: 250px;
+                height: 200px;
             }
         }
