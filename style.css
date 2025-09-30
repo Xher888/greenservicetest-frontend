@@ -1025,6 +1025,11 @@
                 padding: 3rem 0;
             }
 
+            .about-image {
+                height: 380px;
+                padding: 1.5rem;
+            }
+
             .about-overlay {
                 padding: 3rem 1.5rem;
                 display: flex;
