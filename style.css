@@ -1125,7 +1125,21 @@
                 padding: 1.5rem;
             }
 
+            /*.about-image {
+                height: 200px;
+            }*/
+
             .about-image {
                 height: 200px;
+                padding: 1.5rem;
+            }
+
+            .about-overlay span {
+                font-size: 1.2rem;
+                margin-bottom: 0.1rem;
+            }
+
+            .service-list li {
+                font-size: 0.95rem;
             }
         }
