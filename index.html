@@ -366,33 +366,33 @@
     <script src="/js/main.js" defer></script>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-live="polite">
-        <div class="cookie-content">
-            <p>
-            Questo sito utilizza cookie tecnici, analitici e di marketing per migliorare l’esperienza utente e mostrare annunci personalizzati.
-            <a href="privacy.html" target="_blank" rel="noopener noreferrer">Leggi la privacy policy</a>.
-            </p>
-            <div class="cookie-buttons">
-                <button id="acceptAll">Accetta tutto</button>
-                <button id="customize">Personalizza</button>
-            </div>
-        </div>
-    </div>
+	<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-live="polite" aria-labelledby="cookieBannerTitle">
+		<h2 id="cookieBannerTitle" class="sr-only">Informativa sui cookie</h2>
+		<div class="cookie-content">
+			<p>
+			Questo sito utilizza cookie tecnici, analitici e di marketing per migliorare l'esperienza utente e mostrare annunci personalizzati.
+			<a href="privacy.html" target="_blank" rel="noopener noreferrer">Leggi la privacy policy</a>.
+			</p>
+			<div class="cookie-buttons">
+				<button id="acceptAll">Accetta tutto</button>
+				<button id="customize">Personalizza</button>
+			</div>
+		</div>
+	</div>
 
-    <!-- Modal di personalizzazione -->
-    <div id="cookieModal" class="cookie-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="cookie-modal-content">
-            <h2>Preferenze cookie</h2>
-            <form id="cookieForm">
-            <label><input type="checkbox" name="technical" checked disabled> Cookie tecnici (necessari)</label><br>
-            <label><input type="checkbox" name="analytics"> Cookie analitici</label><br>
-            <label><input type="checkbox" name="marketing"> Cookie di marketing (es. Google Ads)</label><br>
-            <div class="cookie-modal-actions">
-                <button type="submit">Salva preferenze</button>
-            </div>
-            </form>
-        </div>
-    </div>
-
+	<!-- Cookie Customization Modal -->
+	<div id="cookieModal" class="cookie-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cookieModalTitle">
+		<div class="cookie-modal-content">
+			<h2 id="cookieModalTitle">Preferenze cookie</h2>
+			<form id="cookieForm">
+				<label><input type="checkbox" name="technical" checked disabled> Cookie tecnici (necessari)</label><br>
+				<label><input type="checkbox" name="analytics"> Cookie analitici</label><br>
+				<label><input type="checkbox" name="marketing"> Cookie di marketing (es. Google Ads)</label><br>
+				<div class="cookie-modal-actions">
+					<button type="submit">Salva preferenze</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
