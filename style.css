@@ -14,7 +14,7 @@
             --transition: all 0.3s ease;
         }
 
-        /* Reset y estilos generales */
+        /* Reset and general styles */
         * {
             margin: 0;
             padding: 0;
@@ -79,7 +79,7 @@
         }
 
         .logo img {
-            height: 50px; /* ajusta el tamaño */
+            height: 50px; 
             width: auto;
             display: block;
             border-radius: 8px;
@@ -249,7 +249,7 @@
             background: linear-gradient(135deg, var(--accent-green), var(--light-green));
         }
 
-        /* Secciones */
+        /* Sections  */
         section {
             padding: 5rem 0;
         }
@@ -471,7 +471,7 @@
             font-size: 1.1rem;
         }
 		
-		/* Gallery Button - Hibr */
+		/* Gallery Button - Hybrid */
 		.gallery-btn {
 			display: inline-block;
 			margin-top: 1rem;
@@ -782,7 +782,7 @@
             background: #66bb6a;
         }
 
-        /* Cookie Consent - Estilos adicionales */
+        /* Cookie Consent - Additional styles */
             .cookie-buttons {
             display: flex;
             gap: 1rem;
@@ -930,7 +930,7 @@
             color: var(--light-green);
         }
 
-        /* Animaciones */
+        /* Animations  */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
