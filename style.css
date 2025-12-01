@@ -959,6 +959,12 @@
         }
 
         /* Responsive Design */
+		@media (min-width: 769px) {
+			#gallery-page .hero-content {
+				padding-top: 4rem; 
+			}
+		}
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
