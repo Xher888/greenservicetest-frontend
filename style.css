@@ -470,6 +470,27 @@
             font-weight: 600;
             font-size: 1.1rem;
         }
+		
+		/* Gallery Button - Hibr */
+		.gallery-btn {
+			display: inline-block;
+			margin-top: 1rem;
+			padding: 0.8rem 2rem;
+			background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+			color: white;
+			text-decoration: none;
+			border-radius: 50px;
+			font-weight: 600;
+			font-size: 1.1rem;
+			box-shadow: var(--shadow);
+			transition: var(--transition);
+		}
+
+		.gallery-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-hover);
+			background: linear-gradient(135deg, var(--accent-green), var(--light-green));
+		}
 
         /* Testimonials */
         #testimonials {
