@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// Gallery carousel (galleria.html)
+// Gallery carousel 
 (function() {
     const carousel = document.querySelector('.gallery-carousel');
     if (!carousel) return;
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return Math.max(1, Math.round(viewportWidth / itemWidth));
   }
   function updateCarousel() {
-    const itemWidth = items[0].clientWidth || viewport.clientWidth;
+    const itemWidth = viewport.clientWidth / getItemsPerView();
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
