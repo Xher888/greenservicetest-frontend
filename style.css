@@ -459,6 +459,8 @@
             justify-content: center;
             opacity: 0;
             transition: var(--transition);
+			pointer-events: none;
+			z-index: 1;
         }
 
         .gallery-item:hover .gallery-overlay {
