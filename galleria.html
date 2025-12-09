@@ -136,8 +136,7 @@
             </div>
         </div>
     </section>
-    </main>
-	
+    	
 	<!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -200,6 +199,7 @@
             </div>
         </div>
     </section>
+	</main>
 
     <!-- FOOTER -->
     <footer role="contentinfo">
@@ -222,7 +222,7 @@
         </div>
     </footer>
 
-    <!-- Íconos flotantes -->
+    <!-- WhatsApp and Scroll-to-Top floating icons -->
     <div class="float-buttons">
         <div class="whatsapp-float">
             <a href="https://wa.me/+393279070847" target="_blank" rel="noopener noreferrer" title="WhatsApp">
@@ -235,6 +235,18 @@
             </a>
         </div>
     </div>
+	
+	<!-- Lightbox gallery -->
+	<div class="lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-modal="true">
+		<div class="lightbox-backdrop" data-lightbox-close></div>
+		<div class="lightbox-content" role="document">
+			<button class="lightbox-close" type="button" aria-label="Chiudi galleria" data-lightbox-close>&times;</button>
+			<button class="lightbox-prev" type="button" aria-label="Immagine precedente">&lsaquo;</button>
+			<button class="lightbox-next" type="button" aria-label="Immagine successiva">&rsaquo;</button>
+			<img class="lightbox-image" src="" alt="">
+			<p class="lightbox-caption"></p>
+		</div>
+	</div>
 
     <!-- Scripts -->
     <script src="main.js" defer></script>
