@@ -194,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const acceptAll = document.getElementById('acceptAll');
   const customize = document.getElementById('customize');
   const cookieForm = document.getElementById('cookieForm');
+  if (!cookieBanner || !cookieModal || !acceptAll || !customize || !cookieForm) return;
+
 
   if (!localStorage.getItem('cookiePreferences')) {
     cookieBanner.classList.add('show');
