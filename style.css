@@ -783,7 +783,7 @@
         }
 
         /* Cookie Consent - Additional styles */
-            .cookie-buttons {
+        .cookie-buttons {
             display: flex;
             gap: 1rem;
         }

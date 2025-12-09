@@ -63,8 +63,8 @@
         "Su 16:00-19:30"
     ],
     "sameAs": [
-      // "https://www.facebook.com/greenserviceoulx",
-      // "https://www.instagram.com/greenservice"
+       "https://www.facebook.com/greenserviceoulx",
+       "https://www.instagram.com/greenservice"
     ]
 }
 </script>    
@@ -228,14 +228,18 @@
             <div class="contact-content">
                 <div class="contact-form">
                     <form id="contactForm">
-                        <input type="text" name="name" placeholder="Il tuo nome" required>
+						<label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
                         <div class="error-message" id="errorName"></div>
-                        <input type="email" name="email" placeholder="La tua email" required>
+						<label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="La tua email" required>
                         <div class="error-message" id="errorEmail"></div>
-                        <input type="tel" name="phone" placeholder="Il tuo numero di telefono" required>
+						<label for="phone">Telefono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Il tuo numero di telefono" required>
                         <div class="error-message" id="errorPhone"></div>
-                        <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
-                        <div class="error-message" id="errorMessage"></div>
+						<label for="message">Messaggio</label>
+						<textarea id="message" name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+						<div class="error-message" id="errorMessage"></div>
                         <!-- Honeypot -->
                         <div style="display: none;">
                             <label for="website">Non compilare questo campo</label>
@@ -276,8 +280,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
     </section>
     <!-- Map Section -->
     <section id="location">

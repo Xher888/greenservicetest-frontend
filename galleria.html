@@ -137,6 +137,69 @@
         </div>
     </section>
     </main>
+	
+	<!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contatti</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+						<label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+                        <div class="error-message" id="errorName"></div>
+						<label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="La tua email" required>
+                        <div class="error-message" id="errorEmail"></div>
+						<label for="phone">Telefono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Il tuo numero di telefono" required>
+                        <div class="error-message" id="errorPhone"></div>
+						<label for="message">Messaggio</label>
+						<textarea id="message" name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+						<div class="error-message" id="errorMessage"></div>
+                        <!-- Honeypot -->
+                        <div style="display: none;">
+                            <label for="website">Non compilare questo campo</label>
+                            <input type="text" id="website" name="website" autocomplete="off">
+                        </div>
+                        <button type="submit">Inviare messaggio</button>
+                        <div id="formResponse" aria-live="polite" style="margin-top: 10px; color: green;"></div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefono</h4>
+                            <p><a href="tel:+390122832236" class="contact-link">+39 0122 83 22 36</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:greenservice@live.it" class="contact-link">greenservice@live.it</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Indirizzo</h4>
+                            <p><a href="https://maps.app.goo.gl/6n3n5HDeUt9fuNzu7" target="_blank" rel="noopener noreferrer" class="contact-link">Corso Torino, 159, 10056 Oulx, TO (GARDEN CENTER)</a></p>
+                            <p><a href="https://maps.app.goo.gl/1qRdYDywRMwppv1T6" target="_blank" rel="noopener noreferrer" class="contact-link">Corso Torino, 128, 10056 Oulx, TO (BRICO - AGRARIA)</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Orari</h4>
+                            <p>Lun-Sab: 8:30-12:30 / 14:30-19:30<br>Dom: 9:00-12:30 / 16:00-19.30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer role="contentinfo">
