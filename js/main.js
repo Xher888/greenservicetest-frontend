@@ -332,21 +332,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-    if (currentIndex < 0) currentIndex = 0;
-
     const offset = -currentIndex * itemWidth;
     grid.style.transform = `translateX(${offset}px)`;
   }
+  
   btnNext.addEventListener('click', () => {
-    currentIndex += getItemsPerView();
-    updateCarousel();
-  });
+  const itemsPerView = getItemsPerView();
+  const maxIndex = Math.max(0, items.length - itemsPerView);
+
+  if (currentIndex >= maxIndex) {
+    currentIndex = 0;              
+  } else {
+    currentIndex += itemsPerView;  
+  }
+
+  updateCarousel();
+});
 
   btnPrev.addEventListener('click', () => {
-    currentIndex -= getItemsPerView();
-    updateCarousel();
-  });
+  const itemsPerView = getItemsPerView();
+  const maxIndex = Math.max(0, items.length - itemsPerView);
+
+  if (currentIndex <= 0) {
+    currentIndex = maxIndex;        // salta a la última “página”
+  } else {
+    currentIndex -= itemsPerView;   // retrocede normalmente
+  }
+
+  updateCarousel();
+});
+  
+  
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
 })();
