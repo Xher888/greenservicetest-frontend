@@ -1,3 +1,4 @@
+/*
 // Mobile menu toggle
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
@@ -221,10 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+*/
 
 
 
-/*
 // Mobile menu toggle con aria-expanded
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
@@ -451,4 +452,3 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieBanner.classList.remove('show');
   });
 });
-*/
