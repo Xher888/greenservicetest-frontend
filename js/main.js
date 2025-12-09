@@ -1,4 +1,3 @@
-/*
 // Mobile menu toggle
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
@@ -118,7 +117,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
   (async () => {
     try {
-      const response = await fetch('/contact', {  
+      const response = await fetch('https://greenservicetest-backend.onrender.com/contact', {  
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone, message })
@@ -222,10 +221,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-*/
 
-
-
+/*
 // Mobile menu toggle con aria-expanded
 const mobileMenu = document.getElementById('mobileMenu');
 const navLinks = document.getElementById('navLinks');
@@ -452,3 +449,4 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieBanner.classList.remove('show');
   });
 });
+*/
