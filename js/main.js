@@ -116,6 +116,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   submitButton.classList.add('loading');
 
   (async () => {
+	let success = false;
     try {
       const response = await fetch('https://greenservicetest-backend.onrender.com/contact', {  
         method: 'POST',
@@ -131,6 +132,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       responseDiv.innerText = data.message;
       responseDiv.style.color = 'green';
       form.reset();
+	  success = true;
 
     } catch (error) {
       responseDiv.innerText = 'Errore nell\'invio del messaggio.';
@@ -139,9 +141,11 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     } finally {
       submitButton.classList.remove('loading');
       submitButton.disabled = false;
-      setTimeout(() => {
-        responseDiv.innerText = 'Messaggio inviato ✅';
-      }, 5000);
+      if (success) {
+        setTimeout(() => {
+          responseDiv.innerText = 'Messaggio inviato ✅';
+        }, 5000);
+	  }
     }
   })();
 });
