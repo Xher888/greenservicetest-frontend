@@ -354,9 +354,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const maxIndex = Math.max(0, items.length - itemsPerView);
 
   if (currentIndex <= 0) {
-    currentIndex = maxIndex;        // salta a la última “página”
+    currentIndex = maxIndex;        
   } else {
-    currentIndex -= itemsPerView;   // retrocede normalmente
+    currentIndex -= itemsPerView;   
   }
 
   updateCarousel();
