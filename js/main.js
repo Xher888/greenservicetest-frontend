@@ -331,13 +331,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateCarousel() {
     const itemsPerView = getItemsPerView();
+	const itemWidth = items[0].offsetWidth;
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     if (currentIndex < 0) currentIndex = 0;
 
-    const offsetPercent = -(100 / itemsPerView) * currentIndex;
-    grid.style.transform = `translateX(${offsetPercent}%)`;
+    const offset = -(itemWidth * currentIndex);
+    grid.style.transform = `translateX(${offset}px)`;
   }
 
   btnNext.addEventListener('click', () => {
