@@ -323,33 +323,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
 
+
     function getItemsPerView() {
       const viewportWidth = viewport.clientWidth;
       if (viewportWidth >= 768) {
-        return 3;   
+        return 3;   // desktop/tablet: 3 por vista
       } else {
-        return 1;   
+        return 1;   // mobile: 1 por vista
       }
     }
 
     function updateCarousel() {
       const itemsPerView = getItemsPerView();
-      const maxIndex = Math.max(0, items.length - itemsPerView);
-      if (currentIndex > maxIndex) currentIndex = maxIndex;
-      if (currentIndex < 0) currentIndex = 0;
+      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
 
-      const offsetPercent = -(100 / itemsPerView) * currentIndex;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 0) currentPage = 0;
+
+      const offsetPercent = -(100 * currentPage);
       grid.style.transform = `translateX(${offsetPercent}%)`;
     }
 
     btnNext.addEventListener('click', () => {
       const itemsPerView = getItemsPerView();
-      const maxIndex = Math.max(0, items.length - itemsPerView);
+      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
 
-      if (currentIndex >= maxIndex) {
-        currentIndex = 0;
+      if (currentPage >= totalPages) {
+        currentPage = 0;              // vuelve al primer bloque
       } else {
-        currentIndex += itemsPerView;
+        currentPage += 1;             // siguiente bloque de 3
       }
 
       updateCarousel();
@@ -357,17 +359,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnPrev.addEventListener('click', () => {
       const itemsPerView = getItemsPerView();
-      const maxIndex = Math.max(0, items.length - itemsPerView);
+      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
 
-      if (currentIndex <= 0) {
-        currentIndex = maxIndex;
+      if (currentPage <= 0) {
+        currentPage = totalPages;     // va al último bloque
       } else {
-        currentIndex -= itemsPerView;
+        currentPage -= 1;             // bloque anterior
       }
 
       updateCarousel();
     });
-
   
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
