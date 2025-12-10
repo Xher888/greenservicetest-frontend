@@ -482,7 +482,8 @@
 		}
 		
 		.gallery-viewport .gallery-item {
-			flex: 0 0 25%;
+			flex: 0 0 auto;
+			width: calc(100% / 4);
 		}
 	
 		.gallery-carousel {
@@ -1107,6 +1108,13 @@
 		}
 
         /* Responsive Design */
+		
+		@media (max-width: 1023px) {
+			.gallery-viewport .gallery-item {
+			width: calc(100% / 3);
+			}
+		}
+		
 		@media (min-width: 769px) {
 			#gallery-page .hero-content {
 				padding-top: 4rem; 
@@ -1210,7 +1218,7 @@
 			}
 			
 			.gallery-viewport .gallery-item {
-				flex: 0 0 100%;
+				width: 100%;
 			}
 
             section {
@@ -1281,6 +1289,12 @@
                 text-align: center;
             }
         }
+		
+		@media (max-width: 767px) {
+			.gallery-viewport .gallery-item {
+			width: 100%;            
+			}
+		}
 
         @media (max-width: 480px) {
             .hero {
