@@ -474,7 +474,12 @@
             font-weight: 600;
             font-size: 1.1rem;
         }
+		
 		/* Gallery carousel (only galleria.html) */
+		.gallery-viewport .gallery-grid {
+			flex-wrap: nowrap;
+		}
+		
 		.gallery-carousel {
 			display: flex;
 			align-items: center;
@@ -506,7 +511,6 @@
 			transform: translateY(-2px);
 			box-shadow: var(--shadow-hover);
 		}
-
 		
 		/* Gallery Button - Hybrid */
 		.gallery-btn {
