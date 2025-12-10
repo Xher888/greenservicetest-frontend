@@ -325,12 +325,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getItemsPerView() {
       const viewportWidth = viewport.clientWidth;
-      if (viewportWidth >= 1024) {
-        return 4;   // desktop
-      } else if (viewportWidth >= 768) {
-        return 3;   // tablet
+      if (viewportWidth >= 768) {
+        return 3;   
       } else {
-        return 1;   // mobile
+        return 1;   
       }
     }
 
