@@ -350,36 +350,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateCarousel() {
-    const itemsPerView = getItemsPerView();
-    const itemWidth = getItemWidth();
-    const gap = getGap();
-    const maxIndex = clampIndex(itemsPerView);
+	const itemsPerView = getItemsPerView();
+	const itemWidth = items[0].getBoundingClientRect().width;
+	const gap = parseFloat(getComputedStyle(grid).gap) || 0;
 
-    // Desplazamiento exacto considerando el espacio entre ítems
-    const offset = -((itemWidth + gap) * currentIndex);
-    grid.style.transform = `translateX(${offset}px)`;
+	const totalWidth = items.length * (itemWidth + gap);
+	const viewportWidth = itemsPerView * (itemWidth + gap);
+
+	const maxIndex = Math.max(0, items.length - itemsPerView);
+	if (currentIndex > maxIndex) currentIndex = maxIndex;
+	if (currentIndex < 0) currentIndex = 0;
+
+	const offset = currentIndex * (itemWidth + gap);
+	const maxOffset = totalWidth - viewportWidth;
+
+	grid.style.transform = `translateX(-${Math.min(offset, maxOffset)}px)`;
   }
 
   btnNext.addEventListener('click', () => {
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
-    // Avanza en bloques, pero permite llegar al final antes de hacer wrap
-    const nextIndex = currentIndex + itemsPerView;
-    currentIndex = nextIndex <= maxIndex ? nextIndex : 0;
+  if (currentIndex < maxIndex) {
+    currentIndex += itemsPerView;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+  }
+  updateCarousel();
+});
 
-    updateCarousel();
-  });
+btnPrev.addEventListener('click', () => {
+  const itemsPerView = getItemsPerView();
 
-  btnPrev.addEventListener('click', () => {
-    const itemsPerView = getItemsPerView();
-    const maxIndex = Math.max(0, items.length - itemsPerView);
+  if (currentIndex > 0) {
+    currentIndex -= itemsPerView;
+    if (currentIndex < 0) currentIndex = 0;
+  }
+  updateCarousel();
+});
 
-    const prevIndex = currentIndex - itemsPerView;
-    currentIndex = prevIndex >= 0 ? prevIndex : maxIndex;
-
-    updateCarousel();
-  });
 
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
