@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getItemsPerView() {
     const viewportWidth = viewport.clientWidth;
-    return viewportWidth >= 768 ? 3 : 1; 
+    return viewportWidth >= 768 ? 4 : 1; 
   }
 
   function updateCarousel() {
