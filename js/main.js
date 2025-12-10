@@ -322,60 +322,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!items.length || !btnPrev || !btnNext || !viewport) return;
     let currentIndex = 0;
 
-  function getItemsPerView() {
-    const viewportWidth = viewport.clientWidth;
 
-    if (viewportWidth >= 1024) {
-      return 4;          
-    } else if (viewportWidth >= 768) {
-      return 3;          
-    } else {
-      return 1;          
+    function getItemsPerView() {
+      const viewportWidth = viewport.clientWidth;
+      if (viewportWidth >= 1024) {
+        return 4;   // desktop
+      } else if (viewportWidth >= 768) {
+        return 3;   // tablet
+      } else {
+        return 1;   // mobile
+      }
     }
-  }
 
-/*
-  function getItemsPerView() {
-    const viewportWidth = viewport.clientWidth;
-    const itemWidth = items[0].clientWidth || viewportWidth;
-    return Math.max(1, Math.round(viewportWidth / itemWidth));
-  }*/
-    
-  function updateCarousel() {
-    const itemWidth = viewport.clientWidth / getItemsPerView();
-    const itemsPerView = getItemsPerView();
-    const maxIndex = Math.max(0, items.length - itemsPerView);
+    function updateCarousel() {
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, items.length - itemsPerView);
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
 
-    const offset = -currentIndex * itemWidth;
-    grid.style.transform = `translateX(${offset}px)`;
-  }
-  
-  btnNext.addEventListener('click', () => {
-  const itemsPerView = getItemsPerView();
-  const maxIndex = Math.max(0, items.length - itemsPerView);
+      const offsetPercent = -(100 / itemsPerView) * currentIndex;
+      grid.style.transform = `translateX(${offsetPercent}%)`;
+    }
 
-  if (currentIndex >= maxIndex) {
-    currentIndex = 0;              
-  } else {
-    currentIndex += itemsPerView;  
-  }
+    btnNext.addEventListener('click', () => {
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, items.length - itemsPerView);
 
-  updateCarousel();
-});
+      if (currentIndex >= maxIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex += itemsPerView;
+      }
 
-  btnPrev.addEventListener('click', () => {
-  const itemsPerView = getItemsPerView();
-  const maxIndex = Math.max(0, items.length - itemsPerView);
+      updateCarousel();
+    });
 
-  if (currentIndex <= 0) {
-    currentIndex = maxIndex;        
-  } else {
-    currentIndex -= itemsPerView;   
-  }
+    btnPrev.addEventListener('click', () => {
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, items.length - itemsPerView);
 
-  updateCarousel();
-});
-  
+      if (currentIndex <= 0) {
+        currentIndex = maxIndex;
+      } else {
+        currentIndex -= itemsPerView;
+      }
+
+      updateCarousel();
+    });
+
   
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);

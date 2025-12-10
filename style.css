@@ -1209,10 +1209,6 @@
                 grid-template-columns: 1fr;
             }
 			
-            .gallery-item {
-                flex: 0 0 100%;
-            }
-			
 			.gallery-grid {
 				grid-template-columns: 1fr;
 			}
