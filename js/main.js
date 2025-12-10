@@ -311,67 +311,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Gallery carousel 
 (function() {
-    const carousel = document.querySelector('.gallery-carousel');
-    if (!carousel) return;
-    const viewport = carousel.querySelector('.gallery-viewport');
-    const grid = carousel.querySelector('.gallery-grid');
-    const items = Array.from(grid.querySelectorAll('.gallery-item'));
-    const btnPrev = carousel.querySelector('.gallery-nav-prev');
-    const btnNext = carousel.querySelector('.gallery-nav-next');
+  const carousel = document.querySelector('.gallery-carousel');
+  if (!carousel) return;
 
-    if (!items.length || !btnPrev || !btnNext || !viewport) return;
-    let currentIndex = 0;
+  const viewport = carousel.querySelector('.gallery-viewport');
+  const grid = carousel.querySelector('.gallery-grid');
+  const items = Array.from(grid.querySelectorAll('.gallery-item'));
+  const btnPrev = carousel.querySelector('.gallery-nav-prev');
+  const btnNext = carousel.querySelector('.gallery-nav-next');
 
+  if (!items.length || !btnPrev || !btnNext || !viewport) return;
 
+  let currentIndex = 0; 
 
-    function getItemsPerView() {
-      const viewportWidth = viewport.clientWidth;
-      if (viewportWidth >= 768) {
-        return 3;   // desktop/tablet: 3 por vista
-      } else {
-        return 1;   // mobile: 1 por vista
-      }
+  function getItemsPerView() {
+    const viewportWidth = viewport.clientWidth;
+    return viewportWidth >= 768 ? 3 : 1; 
+  }
+
+  function updateCarousel() {
+    const itemsPerView = getItemsPerView();
+    const maxIndex = Math.max(0, items.length - itemsPerView);
+
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const offsetPercent = -(100 / itemsPerView) * currentIndex;
+    grid.style.transform = `translateX(${offsetPercent}%)`;
+  }
+
+  btnNext.addEventListener('click', () => {
+    const itemsPerView = getItemsPerView();
+    const maxIndex = Math.max(0, items.length - itemsPerView);
+
+    if (currentIndex + itemsPerView > maxIndex) {
+      currentIndex = 0;                 
+    } else {
+      currentIndex += itemsPerView;     
     }
 
-    function updateCarousel() {
-      const itemsPerView = getItemsPerView();
-      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
+    updateCarousel();
+  });
 
-      if (currentPage > totalPages) currentPage = totalPages;
-      if (currentPage < 0) currentPage = 0;
+  btnPrev.addEventListener('click', () => {
+    const itemsPerView = getItemsPerView();
+    const maxIndex = Math.max(0, items.length - itemsPerView);
 
-      const offsetPercent = -(100 * currentPage);
-      grid.style.transform = `translateX(${offsetPercent}%)`;
+    if (currentIndex - itemsPerView < 0) {
+      currentIndex = maxIndex;          
+    } else {
+      currentIndex -= itemsPerView;     
     }
 
-    btnNext.addEventListener('click', () => {
-      const itemsPerView = getItemsPerView();
-      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
+    updateCarousel();
+  });
 
-      if (currentPage >= totalPages) {
-        currentPage = 0;              // vuelve al primer bloque
-      } else {
-        currentPage += 1;             // siguiente bloque de 3
-      }
-
-      updateCarousel();
-    });
-
-    btnPrev.addEventListener('click', () => {
-      const itemsPerView = getItemsPerView();
-      const totalPages = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
-
-      if (currentPage <= 0) {
-        currentPage = totalPages;     // va al último bloque
-      } else {
-        currentPage -= 1;             // bloque anterior
-      }
-
-      updateCarousel();
-    });
-  
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
 })();
+
 
 

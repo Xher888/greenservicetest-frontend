@@ -1109,12 +1109,6 @@
 
         /* Responsive Design */
 		
-		@media (max-width: 1023px) {
-			.gallery-viewport .gallery-item {
-			width: calc(100% / 3);
-			}
-		}
-		
 		@media (min-width: 769px) {
 			#gallery-page .hero-content {
 				padding-top: 4rem; 
@@ -1285,12 +1279,6 @@
                 text-align: center;
             }
         }
-		
-		@media (max-width: 767px) {
-			.gallery-viewport .gallery-item {
-			width: 100%;            
-			}
-		}
 
         @media (max-width: 480px) {
             .hero {
