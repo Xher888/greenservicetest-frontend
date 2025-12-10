@@ -325,69 +325,53 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   function getItemsPerView() {
-    // Mantén sincronía con tu CSS: 4 en desktop, 1 en mobile
-    return viewport.clientWidth >= 768 ? 4 : 1;
+    return window.innerWidth >= 768 ? 4 : 1;
   }
 
-  function getGap() {
-    // Lee el gap real aplicado al flex container (puede ser 'gap' o 'column-gap')
-    const styles = getComputedStyle(grid);
-    const raw = styles.gap || styles.columnGap || '0px';
-    const gap = parseFloat(raw);
-    return Number.isFinite(gap) ? gap : 0;
-  }
-
-  function getItemWidth() {
-    // Anchura renderizada del primer ítem (incluye bordes)
-    return items[0].getBoundingClientRect().width;
-  }
-
-  function clampIndex(itemsPerView) {
-    const maxIndex = Math.max(0, items.length - itemsPerView);
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-    if (currentIndex < 0) currentIndex = 0;
-    return maxIndex;
+  function getStep() {
+    const itemWidth = items[0].getBoundingClientRect().width;
+    const styles = getComputedStyle(items[0]);
+    const marginRight = parseFloat(styles.marginRight) || 0;
+    return itemWidth + marginRight;
   }
 
   function updateCarousel() {
-	const itemsPerView = getItemsPerView();
-	const itemWidth = items[0].getBoundingClientRect().width;
-	const gap = parseFloat(getComputedStyle(grid).gap) || 0;
+    const itemsPerView = getItemsPerView();
+    const step = getStep();
 
-	const totalWidth = items.length * (itemWidth + gap);
-	const viewportWidth = itemsPerView * (itemWidth + gap);
+    const maxIndex = Math.max(0, items.length - itemsPerView);
 
-	const maxIndex = Math.max(0, items.length - itemsPerView);
-	if (currentIndex > maxIndex) currentIndex = maxIndex;
-	if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
 
-	const offset = currentIndex * (itemWidth + gap);
-	const maxOffset = totalWidth - viewportWidth;
-
-	grid.style.transform = `translateX(-${Math.min(offset, maxOffset)}px)`;
+    const offset = currentIndex * step;
+    grid.style.transform = `translateX(-${offset}px)`;
   }
 
   btnNext.addEventListener('click', () => {
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
-  if (currentIndex < maxIndex) {
-    currentIndex += itemsPerView;
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-  }
-  updateCarousel();
-});
+    if (currentIndex < maxIndex) {
+      currentIndex += itemsPerView;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+    } else {
+      currentIndex = 0; 
+    }
+    updateCarousel();
+  });
 
-btnPrev.addEventListener('click', () => {
-  const itemsPerView = getItemsPerView();
+  btnPrev.addEventListener('click', () => {
+    const itemsPerView = getItemsPerView();
 
-  if (currentIndex > 0) {
-    currentIndex -= itemsPerView;
-    if (currentIndex < 0) currentIndex = 0;
-  }
-  updateCarousel();
-});
-
+    if (currentIndex > 0) {
+      currentIndex -= itemsPerView;
+      if (currentIndex < 0) currentIndex = 0;
+    } else {
+      currentIndex = items.length - itemsPerView; 
+    }
+    updateCarousel();
+  });
 
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
