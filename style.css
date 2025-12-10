@@ -416,7 +416,8 @@
         }
 
         .gallery-grid {
-            display: flex;
+            display: grid;
+			grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
 			flex-wrap: wrap;
             margin-top: 2rem;
@@ -430,7 +431,6 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-			flex: 0 0 25%;
         }
 
         .gallery-item:hover {
@@ -477,9 +477,14 @@
 		
 		/* Gallery carousel (only galleria.html) */
 		.gallery-viewport .gallery-grid {
+			display: flex;
 			flex-wrap: nowrap;
 		}
 		
+		.gallery-viewport .gallery-item {
+			flex: 0 0 25%;
+		}
+	
 		.gallery-carousel {
 			display: flex;
 			align-items: center;
@@ -1199,6 +1204,14 @@
             .gallery-item {
                 flex: 0 0 100%;
             }
+			
+			.gallery-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.gallery-viewport .gallery-item {
+				flex: 0 0 100%;
+			}
 
             section {
                 padding: 3rem 0;
