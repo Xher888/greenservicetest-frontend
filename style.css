@@ -418,7 +418,7 @@
         .gallery-grid {
             display: flex;
             gap: 1.5rem;
-			flex-wrap: nowrap;
+			flex-wrap: wrap;
             margin-top: 2rem;
 			transition: transform 0.4s ease;
         }
