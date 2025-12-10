@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// Gallery carousel 
+// Gallery carousel
 (function() {
   const carousel = document.querySelector('.gallery-carousel');
   if (!carousel) return;
@@ -322,22 +322,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!items.length || !btnPrev || !btnNext || !viewport) return;
 
-  let currentIndex = 0; 
+  let currentIndex = 0;
 
   function getItemsPerView() {
-    const viewportWidth = viewport.clientWidth;
-    return viewportWidth >= 768 ? 4 : 1; 
+    // Mantén sincronía con tu CSS: 4 en desktop, 1 en mobile
+    return viewport.clientWidth >= 768 ? 4 : 1;
+  }
+
+  function getGap() {
+    // Lee el gap real aplicado al flex container (puede ser 'gap' o 'column-gap')
+    const styles = getComputedStyle(grid);
+    const raw = styles.gap || styles.columnGap || '0px';
+    const gap = parseFloat(raw);
+    return Number.isFinite(gap) ? gap : 0;
+  }
+
+  function getItemWidth() {
+    // Anchura renderizada del primer ítem (incluye bordes)
+    return items[0].getBoundingClientRect().width;
+  }
+
+  function clampIndex(itemsPerView) {
+    const maxIndex = Math.max(0, items.length - itemsPerView);
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+    return maxIndex;
   }
 
   function updateCarousel() {
     const itemsPerView = getItemsPerView();
-	const itemWidth = items[0].offsetWidth;
-    const maxIndex = Math.max(0, items.length - itemsPerView);
+    const itemWidth = getItemWidth();
+    const gap = getGap();
+    const maxIndex = clampIndex(itemsPerView);
 
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
-    if (currentIndex < 0) currentIndex = 0;
-
-    const offset = -(itemWidth * currentIndex);
+    // Desplazamiento exacto considerando el espacio entre ítems
+    const offset = -((itemWidth + gap) * currentIndex);
     grid.style.transform = `translateX(${offset}px)`;
   }
 
@@ -345,11 +364,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
-    if (currentIndex + itemsPerView > maxIndex) {
-      currentIndex = 0;                 
-    } else {
-      currentIndex += itemsPerView;     
-    }
+    // Avanza en bloques, pero permite llegar al final antes de hacer wrap
+    const nextIndex = currentIndex + itemsPerView;
+    currentIndex = nextIndex <= maxIndex ? nextIndex : 0;
 
     updateCarousel();
   });
@@ -358,18 +375,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerView = getItemsPerView();
     const maxIndex = Math.max(0, items.length - itemsPerView);
 
-    if (currentIndex - itemsPerView < 0) {
-      currentIndex = maxIndex;          
-    } else {
-      currentIndex -= itemsPerView;     
-    }
+    const prevIndex = currentIndex - itemsPerView;
+    currentIndex = prevIndex >= 0 ? prevIndex : maxIndex;
 
     updateCarousel();
   });
 
   window.addEventListener('resize', updateCarousel);
   window.addEventListener('load', updateCarousel);
+  updateCarousel();
 })();
-
-
-
