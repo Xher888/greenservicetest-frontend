@@ -324,9 +324,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getItemsPerView() {
     const viewportWidth = viewport.clientWidth;
+
+    if (viewportWidth >= 1024) {
+      return 4;          
+    } else if (viewportWidth >= 768) {
+      return 3;          
+    } else {
+      return 1;          
+    }
+  }
+
+/*
+  function getItemsPerView() {
+    const viewportWidth = viewport.clientWidth;
     const itemWidth = items[0].clientWidth || viewportWidth;
     return Math.max(1, Math.round(viewportWidth / itemWidth));
-  }
+  }*/
+    
   function updateCarousel() {
     const itemWidth = viewport.clientWidth / getItemsPerView();
     const itemsPerView = getItemsPerView();
