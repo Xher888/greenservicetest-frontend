@@ -1,32 +1,98 @@
 /* Maintenance page specific styles */
 
+/* main content */
 .maintenance-main {
-    min-height: calc(100vh - 140px); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-light);
-    padding: 6rem 1rem 3rem; 
+  position: relative;
+  min-height: calc(100vh - 140px); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1rem 3rem; 
+  overflow: hidden;
 }
 
+/* Background image */
+.maintenance-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("img/maintenance.webp"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  transform: scale(1.03); 
+  z-index: 0;
+}
+
+/* dark contrast txt */
+.maintenance-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* box messagge */
 .maintenance-box {
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    background: var(--bg-white);
-    padding: 2.5rem 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-hover);
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-hover);
+  backdrop-filter: blur(3px);
 }
 
 .maintenance-box h1 {
-    font-size: 2rem;
-    color: var(--primary-green);
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
 }
 
 .maintenance-box p {
-    font-size: 1rem;
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maintenance-main {
+    min-height: calc(100vh - 120px);
+    padding: 5rem 1rem 2rem;
+  }
+
+  .maintenance-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .maintenance-box h1 {
+    font-size: 1.6rem;
+  }
+
+  .maintenance-box p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .maintenance-main {
+    padding: 4.5rem 1rem 1.5rem;
+  }
+
+  .maintenance-box {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .maintenance-box h1 {
+    font-size: 1.4rem;
+  }
+
+  .maintenance-box p {
+    font-size: 0.9rem;
+  }
 }
