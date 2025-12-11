@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Manutenzione in corso | Green Service</title>
+    <meta name="description" content="Il sito di Green Service è temporaneamente in manutenzione per aggiornamenti e miglioramenti. Torna a trovarci tra poco.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Green Service">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- Fonts & styles as index -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          media="print"
+          onload="this.media='all'">
+	<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="maintenance.css">
+
+
+    <!-- Icon as main site -->
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+</head>
+<body>
+    <!-- Navbar short -->
+    <nav class="navbar" role="navigation">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Green Service">
+                <img src="img/gs_logo.png" alt="Green Service Logo">
+                <span>Green Service</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main content maintence-->
+    <main class="maintenance-main">
+        <div class="container maintenance-box">
+            <h1>Stiamo lavorando al sito</h1>
+            <p>Il sito di Green Service è temporaneamente in manutenzione per aggiornamenti e miglioramenti.</p>
+            <p>Riprova più tardi. Grazie per la comprensione.</p>
+        </div>
+    </main>
+
+    <!-- Footer min -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; <span id="annoCorrente"></span> Green Service. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+      // Dynamic year
+      document.getElementById('annoCorrente').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

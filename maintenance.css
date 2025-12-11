@@ -1,0 +1,32 @@
+/* Maintenance page specific styles */
+
+.maintenance-main {
+    min-height: calc(100vh - 140px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    padding: 6rem 1rem 3rem; 
+}
+
+.maintenance-box {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    background: var(--bg-white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+}
+
+.maintenance-box h1 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.maintenance-box p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
