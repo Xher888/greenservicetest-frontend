@@ -16,11 +16,11 @@
   position: absolute;
   inset: 0;
   background-image: url("img/maintenance.webp"); 
-  background-size: contain;
+  background-size: 115%;
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(1px);
-  transform: scale(1.0); 
+  transform: translateY(0); 
   z-index: 0;
 }
 
@@ -40,11 +40,11 @@
   max-width: 600px;
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.82); 
   padding: 2.5rem 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-hover);
-  backdrop-filter: blur(3px);
+  border-radius: 18px;                   
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.20); 
+  backdrop-filter: blur(4px);  
 }
 
 .maintenance-box h1 {
@@ -55,7 +55,7 @@
 
 .maintenance-box p {
   font-size: 1rem;
-  color: var(--text-dark);
+  color: var(--text-dark);  
   margin-bottom: 0.5rem;
 }
 
@@ -94,10 +94,6 @@
 
   .maintenance-box p {
     font-size: 0.9rem;
-  }
-  
-  .maintenance-bg {
-    background-size: 90%;
   }
 }
 
